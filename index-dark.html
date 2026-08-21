@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EBOTEC — 로봇과 5축 가공을 움직이는 서보·제어 솔루션</title>
+<meta name="description" content="EBOTEC은 6축 다관절 로봇과 5축 3차원 가공기를 위한 AC 서보 드라이브, EtherCAT 모션 제어기, AI CAM 자동화 소프트웨어와 시뮬레이터를 개발합니다.">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:#0B0F14;
+  --surface:#111821;
+  --surface-2:#161F2A;
+  --line:#1F2B36;
+  --text:#E6EDF3;
+  --muted:#8B98A5;
+  --green:#00B87C;
+  --logo:#288566;
+  --green-dim:#0E7A56;
+  --amber:#F5B72B;
+  --red:#E25C5C;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --sans:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--slate);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;letter-spacing:-0.01em;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.mono{font-family:var(--mono)}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:2px}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(11,15,20,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:80px}
+.brand{display:flex;align-items:flex-end;gap:13px;font-weight:800;letter-spacing:.22em;font-size:15px}
+.brand img{height:54px;width:auto}
+.brand .wm{font-size:27px;line-height:.78;letter-spacing:.12em;color:var(--logo)}
+.brand i{display:inline-block;width:3px;height:18px;background:var(--green);margin-left:4px}
+.nav ul{display:flex;gap:32px;list-style:none;font-size:14px;color:var(--muted)}
+.nav ul a:hover{color:var(--text)}
+.nav .cta{font-size:13px;font-family:var(--mono);border:1px solid var(--green);color:var(--green);padding:8px 14px;border-radius:3px;transition:.2s}
+.nav .cta:hover{background:var(--green);color:var(--slate)}
+.burger{display:none;background:none;border:0;color:var(--text);font-size:22px;cursor:pointer}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;min-height:calc(100vh - 64px);padding-top:72px;padding-bottom:72px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--green);text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--green)}
+.hero h1{font-size:clamp(34px,4.4vw,58px);line-height:1.14;font-weight:800;letter-spacing:-0.02em;margin:22px 0 24px}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero p.lead{font-size:18px;color:var(--muted);max-width:540px;font-weight:400}
+.hero .actions{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:4px;font-weight:600;font-size:15px;transition:.2s;border:1px solid transparent}
+.btn-primary{background:var(--green);color:var(--slate)}
+.btn-primary:hover{background:#16d494}
+.btn-ghost{border-color:var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--muted)}
+.hero-stack{position:relative}
+.panel-frame{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.panel-frame img{border-radius:4px;width:100%}
+/* product caption under the hero panel */
+.panel-cap{margin-top:16px;text-align:center;font-family:var(--mono)}
+.panel-cap b{display:block;font-size:14px;font-weight:500;letter-spacing:.2em;color:var(--green)}
+.panel-cap span{display:block;margin-top:7px;font-size:11px;letter-spacing:.05em;color:var(--muted);line-height:1.6}
+.hero-bg{position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(800px 400px at 85% 20%,rgba(0,184,124,.08),transparent 60%),
+  repeating-linear-gradient(0deg,transparent 0 59px,rgba(255,255,255,.025) 59px 60px),
+  repeating-linear-gradient(90deg,transparent 0 59px,rgba(255,255,255,.025) 59px 60px)}
+
+/* ---------- sections ---------- */
+section{padding:108px 0}
+section.alt{background:var(--surface)}
+.sec-head{max-width:720px;margin-bottom:56px}
+.sec-head h2{font-size:clamp(28px,3.4vw,42px);font-weight:800;letter-spacing:-0.03em;line-height:1.2;margin:14px 0 16px}
+.sec-head p{color:var(--muted);font-size:17px}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.pillar{background:var(--slate);padding:36px 32px;position:relative;transition:background .25s}
+.pillar:hover{background:var(--surface-2)}
+.pillar .tag{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--green)}
+.pillar h3{font-size:22px;font-weight:700;margin:16px 0 12px;letter-spacing:-0.02em}
+.pillar p{color:var(--muted);font-size:15px}
+.pillar ul{list-style:none;margin-top:20px;display:grid;gap:8px;font-size:14px}
+.pillar li{display:flex;gap:10px;align-items:flex-start}
+.pillar li::before{content:"";flex:none;width:6px;height:6px;margin-top:8px;background:var(--green);border-radius:1px}
+.pillar svg{width:44px;height:44px;stroke:var(--green);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* hardware */
+.hw{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.hw-img{position:sticky;top:96px;background:#070A0E;border:1px solid var(--line);border-radius:8px;padding:18px}
+.hw-img img{width:100%}
+.hw-img .cap{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:12px;display:flex;justify-content:space-between}
+.product{border-top:1px solid var(--line);padding:28px 0}
+.product:last-child{border-bottom:1px solid var(--line)}
+.product header{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.product h3{font-size:24px;font-weight:800;letter-spacing:-0.02em}
+.product h3 span{color:var(--green)}
+.product .role{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+.product p{color:var(--muted);margin:10px 0 16px;font-size:15px}
+.spec{display:grid;grid-template-columns:repeat(2,1fr);gap:6px 20px;font-family:var(--mono);font-size:12.5px}
+.spec div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding:6px 0}
+.spec b{color:var(--muted);font-weight:400}
+
+/* software */
+.sw{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.sw-card{background:var(--slate);border:1px solid var(--line);border-radius:8px;padding:34px;position:relative;overflow:hidden}
+.sw-card.wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.sw-card .tag{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--green)}
+.sw-card h3{font-size:24px;font-weight:800;margin:14px 0 10px;letter-spacing:-0.02em}
+.sw-card p{color:var(--muted);font-size:15px}
+.sw-card ul{list-style:none;margin-top:18px;display:grid;gap:8px;font-size:14px;color:var(--text)}
+.sw-card li{padding-left:16px;position:relative}
+.sw-card li::before{content:"›";position:absolute;left:0;color:var(--green)}
+/* flow diagram */
+.flow{font-family:var(--mono);font-size:12px;display:grid;gap:6px}
+.flow .row{display:grid;grid-template-columns:1fr 24px 1fr 24px 1fr;align-items:center;gap:4px}
+.flow .node{border:1px solid var(--line);background:var(--surface);padding:12px 10px;border-radius:4px;text-align:center}
+.flow .node.ai{border-color:var(--green);color:var(--green)}
+.flow .arr{text-align:center;color:var(--muted)}
+.flow .note{grid-column:1/-1;color:var(--muted);font-size:11px;text-align:center;margin-top:6px}
+/* robot joint strip */
+.joints{display:flex;gap:6px;margin-top:22px;font-family:var(--mono);font-size:11px}
+.joints div{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:8px 6px;text-align:center}
+.joints b{display:block;color:var(--green);font-weight:500;font-size:13px}
+
+/* data / moat */
+.moat{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.moat h2{font-size:clamp(28px,3.4vw,42px);font-weight:800;letter-spacing:-0.03em;line-height:1.2;margin:14px 0 18px}
+.moat p{color:var(--muted);font-size:17px}
+.loop{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:8px;background:#070A0E;padding:26px}
+.loop .stage{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
+.loop .stage:last-child{border:0}
+.loop .t{color:var(--green);letter-spacing:.1em}
+.loop .d{color:var(--muted)}
+.loop .d strong{color:var(--text);font-weight:500}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:64px}
+.stat{padding:28px 30px;border-right:1px solid var(--line)}
+.stat:last-child{border:0}
+.stat .n{font-family:var(--mono);font-size:34px;font-weight:700;color:var(--text);letter-spacing:-0.02em}
+.stat .n small{font-size:16px;color:var(--green);margin-left:4px}
+.stat .l{font-size:13px;color:var(--muted);margin-top:6px}
+
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:20px}
+.road::before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:var(--line)}
+.road .m{padding:0 16px 0 0;position:relative}
+.road .m::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--slate);border:2px solid var(--green-dim);position:absolute;top:4px;left:0}
+.road .m.now::before{background:var(--green);border-color:var(--green);box-shadow:0 0 0 6px rgba(0,184,124,.15)}
+.road .y{font-family:var(--mono);font-size:12px;color:var(--green);margin-top:30px;letter-spacing:.1em}
+.road h4{font-size:16px;font-weight:700;margin:8px 0 6px}
+.road p{font-size:13px;color:var(--muted)}
+
+/* contact */
+.contact{border-top:1px solid var(--line)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.contact h2{font-size:clamp(28px,3.4vw,40px);font-weight:800;letter-spacing:-0.03em;line-height:1.2;margin-bottom:16px}
+.contact p{color:var(--muted);font-size:16px;max-width:480px}
+.cform{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:28px;display:grid;gap:14px}
+.cform label{font-size:12px;color:var(--muted);display:grid;gap:6px;font-family:var(--mono);letter-spacing:.08em}
+.cform input,.cform select,.cform textarea{background:var(--slate);border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:4px;font:inherit;font-family:var(--sans);font-size:15px}
+.cform input:focus,.cform select:focus,.cform textarea:focus{border-color:var(--green);outline:0}
+.cform textarea{min-height:110px;resize:vertical}
+.cform .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cform .ok{display:none;color:var(--green);font-size:14px}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:40px 0;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer .brand{font-size:13px}
+footer .brand img{height:46px;width:auto}
+footer .brand .wm{font-size:23px;color:var(--logo)}
+footer .copy{display:flex;flex-direction:column;gap:7px}
+footer .copy .est{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted)}
+footer .copy .est b{color:var(--green);font-weight:500}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+
+/* responsive */
+@media (max-width:1000px){
+  .hero .wrap{grid-template-columns:1fr;min-height:0;padding-top:56px}
+  .pillars{grid-template-columns:1fr}
+  .hw,.moat,.contact .wrap,.sw-card.wide{grid-template-columns:1fr}
+  .hw-img{position:static}
+  .sw{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
+  .road{grid-template-columns:1fr;gap:28px}
+  .road::before{display:none}
+  .road .y{margin-top:0;padding-left:20px}
+  .nav ul{display:none;position:absolute;top:80px;left:0;right:0;background:var(--slate);border-bottom:1px solid var(--line);flex-direction:column;gap:0;padding:8px 0}
+  .nav ul.open{display:flex}
+  .nav ul li a{display:block;padding:14px 28px}
+  .burger{display:block}
+  .nav .cta{display:none}
+}
+@media (max-width:560px){
+  section{padding:72px 0}
+  .spec,.cform .row2{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0;border-bottom:1px solid var(--line)}
+  .stat:last-child{border-bottom:0}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="EBOTEC 홈"><img src="img/logo-mark.png" alt=""><span class="wm">EBOTEC</span></a>
+    <ul id="menu">
+      <li><a href="#solutions">솔루션</a></li>
+      <li><a href="#hardware">하드웨어</a></li>
+      <li><a href="#software">소프트웨어</a></li>
+      <li><a href="#data">기술</a></li>
+      <li><a href="#company">회사</a></li>
+    </ul>
+    <a href="#contact" class="cta">기술 상담 요청</a>
+    <button class="burger" aria-label="메뉴" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Energy &amp; Robot Technology</span>
+      <h1>EBO-Motion Software delivers<br><em>High-Precision Robot Control</em></h1>
+      <p class="lead">EBOTEC은 6축 다관절 로봇과 5축 3차원 가공기가 공유하는 핵심, 즉 AC 서보 드라이브 · EtherCAT 모션 제어기 · AI 기반 경로 생성 소프트웨어를 직접 설계합니다. 모터 전류 한 샘플부터 G-code 한 줄까지, 전 계층을 한 회사가 책임집니다.</p>
+      <div class="actions">
+        <a href="#solutions" class="btn btn-primary">솔루션 보기 →</a>
+        <a href="#contact" class="btn btn-ghost">기술 상담 요청</a>
+      </div>
+    </div>
+    <div class="hero-stack">
+      <div class="panel-frame">
+        <img src="img/panel.png" alt="EBO-Motion, EBO-Converter, EBO-Drive 전면 패널">
+      </div>
+      <div class="panel-cap">
+        <b>EBO-SERIES CONTROL LINE</b>
+        <span>마스터 제어기 · 전력 변환기 · 서보 드라이브 ×3<br>DIN 레일 위에서 하나로 연결되는 통합 제어 라인</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= SOLUTIONS ================= -->
+<section id="solutions">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Solutions</span>
+      <h2>가공기 회사도, 로봇 회사도 아닙니다.<br>둘을 움직이는 제어 계층을 만듭니다.</h2>
+      <p>다관절 로봇의 관절과 5축 가공기의 회전축은 같은 서보, 같은 실시간 버스, 같은 좌표 변환 문제를 공유합니다. EBOTEC은 그 공통 계층을 제품화합니다.</p>
+    </div>
+    <div class="pillars rv">
+      <article class="pillar">
+        <svg viewBox="0 0 48 48"><path d="M8 40h10M13 40V28l8-10 10 4 6-10"/><circle cx="13" cy="28" r="3"/><circle cx="21" cy="18" r="3"/><circle cx="31" cy="22" r="3"/><circle cx="37" cy="12" r="3"/><path d="M37 9V6h4"/></svg>
+        <div class="tag" style="margin-top:18px">ROBOT</div>
+        <h3>6축 다관절 로봇 제어</h3>
+        <p>관절 6개에 서보 6축. 작업 좌표에서 관절 각도까지 역기구학을 제어기 안에서 풀고, EtherCAT 주기마다 동기 명령을 내립니다.</p>
+        <ul>
+          <li>6축 IK · FK, 특이점 회피, 관절 한계 처리</li>
+          <li>로봇 좌표 자동 생성 소프트웨어 (작업 → 관절 경로)</li>
+          <li>CiA402 규격 축 제어, 1 ms 이하 주기</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <svg viewBox="0 0 48 48"><path d="M24 6v14M18 20h12l-2 8H20z"/><ellipse cx="24" cy="36" rx="14" ry="5"/><path d="M10 36v4c0 3 6 5 14 5s14-2 14-5v-4M6 30l4 2M42 30l-4 2"/></svg>
+        <div class="tag" style="margin-top:18px">5-AXIS CNC</div>
+        <h3>5축 3차원 가공 기술</h3>
+        <p>trunnion(트러니언) A·B 회전축과 X·Y·Z 직선축의 simultaneous(사이멀테이니어스) 5축 제어. 보간·look-ahead·가감속을 직접 구현해 가공 품질을 제어합니다.</p>
+        <ul>
+          <li>BA-TRT trunnion(트러니언) 기구학, 횡형 spindle(스핀들)</li>
+          <li>G-code 파싱 → IK → 미세 보간까지 자체 제어기</li>
+          <li>알루미늄 구조 부품 단납기 가공에 최적화</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <svg viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="32" rx="3"/><path d="M8 24h6l3-8 4 16 4-12 3 6 2-2h10"/></svg>
+        <div class="tag" style="margin-top:18px">SERVO &amp; CONTROLLER</div>
+        <h3>서보 드라이브 · 모션 제어기</h3>
+        <p>AC 서보 드라이브와 EtherCAT 마스터 제어기를 자체 설계합니다. 전류 루프부터 버스 동기까지 한 팀이 튜닝합니다.</p>
+        <ul>
+          <li>FOC · SVPWM, 20 kHz 전류 루프, 시그마-델타 절연 전류 센싱</li>
+          <li>EtherCAT DC 동기, 1 µs급 지터</li>
+          <li>EnDat 2.2 · BiSS-C · T-format · Resolver 등 다중 encoder(엔코더) 인터페이스</li>
+          <li>linear scale(리니어 스케일) 2차 피드백으로 full-closed loop(풀 클로즈드 루프) 제어</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HARDWARE ================= -->
+<section id="hardware" class="alt">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Hardware</span>
+      <h2>세 개의 모듈, 하나의 제어 라인</h2>
+      <p>제어기 · 전력 변환기 · 서보 드라이브를 DIN 레일 위에 나란히 연결합니다. 로봇 6축이든 가공기 5축이든 같은 모듈을 조합합니다.</p>
+    </div>
+    <div class="hw">
+      <div class="hw-img rv">
+        <img src="img/panel.png" alt="EBOTEC 제어 라인 전면 패널">
+        <div class="cap"><span>FRONT PANEL · R12</span><span>EBO-Motion · EBO-Converter · EBO-Drive ×3</span></div>
+      </div>
+      <div>
+        <article class="product rv">
+          <header><h3>EBO-<span>Motion</span></h3><span class="role">Master controller</span></header>
+          <p>EtherCAT 마스터와 실시간 모션 엔진을 담은 제어기. 로봇 IK와 5축 CAM 경로가 이 안에서 축 명령으로 바뀝니다.</p>
+          <div class="spec">
+            <div><b>Real-time</b><span>전용 실시간 코어, 1 ms 이하 주기</span></div>
+            <div><b>Fieldbus</b><span>EtherCAT X1/X2, LAN X3</span></div>
+            <div><b>I/O</b><span>디지털 16P, RJ12 서비스</span></div>
+            <div><b>Display</b><span>상태 LCD (RUN · OP · SYNC)</span></div>
+            <div><b>Power</b><span>24 V DC, USB-C 5 V</span></div>
+          </div>
+        </article>
+        <article class="product rv">
+          <header><h3>EBO-<span>Converter</span></h3><span class="role">Power converter</span></header>
+          <p>단상/삼상 입력을 DC 버스로 변환해 드라이브 전체에 공급합니다. 버스 전압 정보를 드라이브에 전달해 전압 변동을 미리 보상합니다.</p>
+          <div class="spec">
+            <div><b>Input</b><span>AC 주전원 6P 7.62 mm</span></div>
+            <div><b>DC bus</b><span>드라이브 공유 버스</span></div>
+            <div><b>Feedforward</b><span>DC 버스 전압 실시간 공유</span></div>
+            <div><b>Status</b><span>2-digit 7-seg, RJ12</span></div>
+          </div>
+        </article>
+        <article class="product rv">
+          <header><h3>EBO-<span>Drive</span></h3><span class="role">AC servo drive</span></header>
+          <p>1축 AC 서보 드라이브. 전류·속도·위치 3중 루프와 CiA402 슬레이브를 한 보드에서 처리합니다.</p>
+          <div class="spec">
+            <div><b>Current loop</b><span>20 kHz, double-update 25 µs</span></div>
+            <div><b>Sensing</b><span>AMC1304 절연 ΣΔ 변조기</span></div>
+            <div><b>Encoder</b><span>23-bit ABS · EnDat 2.2 · BiSS-C · T-format · Resolver</span></div>
+            <div><b>Full-closed</b><span>리니어 스케일 2차 encoder 입력 (A/B/Z · EnDat)</span></div>
+            <div><b>Fieldbus</b><span>EtherCAT X1 IN / X2 OUT</span></div>
+            <div><b>Motor</b><span>6P 5.08 mm, U/V/W + PE</span></div>
+            <div><b>Status</b><span>2-digit 7-seg, RJ12</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOFTWARE ================= -->
+<section id="software">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Software</span>
+      <h2>사람은 결정하고, 계산은 결정적으로</h2>
+      <p>AI는 "무엇을 어떻게 깎을지", "로봇이 어느 자세로 갈지" 같은 판단 계층에만 들어갑니다. 경로 계산과 실시간 제어는 끝까지 결정적(deterministic) 코드가 맡습니다. 검증 가능해야 현장에 쓸 수 있기 때문입니다.</p>
+    </div>
+    <div class="sw">
+      <article class="sw-card wide rv">
+        <div>
+          <div class="tag">EBO-SOFT · AI CAM</div>
+          <h3>AI CAM 자동화 소프트웨어</h3>
+          <p>CAD 모델을 읽어 feature(피처)를 인식하고, roughing(러핑) · finishing(피니싱) 전략과 tool engagement(툴 인게이지먼트), chip load(칩 로드)를 AI가 제안합니다. 확정된 전략은 결정적 toolpath(툴패스) 엔진이 계산하고, 드라이브에서 올라온 실제 절삭 데이터로 다음 제안이 다시 좋아집니다.</p>
+          <ul>
+            <li>Design → Machine → Verify → Post 4단계 워크스페이스</li>
+            <li>Part → Feature → Strategy 3계층 구조, AI는 Strategy 선택에만 관여</li>
+            <li>adaptive clearing(어댑티브 클리어링) · trochoidal(트로코이달) 등 HSM 전략 내장</li>
+            <li>서보 부하 실측 기반 G-code 이송 속도 자동 최적화</li>
+          </ul>
+        </div>
+        <div class="flow">
+          <div class="row"><div class="node">CAD<br>STEP / 3D</div><div class="arr">→</div><div class="node ai">AI<br>feature · 전략 제안</div><div class="arr">→</div><div class="node">Toolpath<br>결정적 계산</div></div>
+          <div class="row"><div class="node">G-code<br>Post</div><div class="arr">→</div><div class="node">EBO-Motion<br>IK · 보간</div><div class="arr">→</div><div class="node">EBO-Drive<br>FOC · 전류</div></div>
+          <div class="row"><div class="node ai" style="grid-column:1/-1">↺ 절삭 부하 · 전류 · 추종 오차 데이터가 다음 AI 제안으로 되돌아감</div></div>
+          <div class="note">판단은 AI, 계산은 결정적 코드, 검증은 실측 데이터</div>
+        </div>
+      </article>
+
+      <article class="sw-card rv">
+        <div class="tag">ROBOT PATH GENERATOR</div>
+        <h3>6축 로봇 좌표 자동 생성</h3>
+        <p>사용자는 작업 공간에서 "무엇을 어디로"만 지정합니다. 소프트웨어가 도구 자세를 포함한 작업 좌표를 만들고, 역기구학으로 6개 관절 각도 시퀀스를 생성해 EtherCAT 주기 단위 명령으로 내려보냅니다.</p>
+        <ul>
+          <li>작업 좌표 → 관절 좌표 자동 변환, 특이점 · 관절 한계 회피</li>
+          <li>가공·조립·핸들링 경로를 같은 엔진에서 생성</li>
+          <li>5축 가공기와 동일한 IK 코어 공유</li>
+        </ul>
+        <div class="joints">
+          <div><b>J1</b>base</div><div><b>J2</b>shoulder</div><div><b>J3</b>elbow</div><div><b>J4</b>wrist 1</div><div><b>J5</b>wrist 2</div><div><b>J6</b>flange</div>
+        </div>
+      </article>
+
+      <article class="sw-card rv">
+        <div class="tag">SIMULATOR</div>
+        <h3>제어 · 가공 시뮬레이터</h3>
+        <p>실제 장비에 내리기 전에 PC에서 끝까지 돌려봅니다. 5축 기구학, 로봇 동작, 그리고 서보 내부의 FOC 전류 제어까지 같은 코드로 재현합니다.</p>
+        <ul>
+          <li>BA-TRT 5축 · 6축 로봇 기구학 검증, 충돌 · 간섭 확인</li>
+          <li>FOC · SVPWM 시뮬레이터 — 전류 센싱 창, dead-time(데드타임), encoder(엔코더) 오프셋 오차까지 재현</li>
+          <li>제어기와 드라이브에 올라가는 코드와 동일한 보간 · 제어 로직 사용</li>
+          <li>교육용 학습 모드 7종 제공</li>
+        </ul>
+      </article>
+
+      <article class="sw-card rv" style="grid-column:1/-1">
+        <div class="tag">EBO-WARE · EMBEDDED</div>
+        <h3>관측 가능한 제어 펌웨어</h3>
+        <p>G-code 한 줄에 부여된 trace ID가 보간, EtherCAT 프레임, 드라이브의 전류 명령까지 그대로 따라갑니다. 장비가 이상하게 움직였을 때 "어느 줄의 어느 축이 왜"를 계층을 넘어 추적할 수 있습니다. 모든 상태는 명시적이고, 오류는 문자열이 아니라 데이터로 남습니다.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DATA / MOAT ================= -->
+<section id="data" class="alt">
+  <div class="wrap">
+    <div class="moat">
+      <div class="rv">
+        <span class="eyebrow">Why EBOTEC</span>
+        <h2>서보가 보는 것을<br>소프트웨어가 배웁니다</h2>
+        <p>스텝 모터 기반 장비는 "명령을 내렸다"만 압니다. 우리 드라이브는 25 µs마다 실제 전류, 실제 위치, 추종 오차를 측정합니다. 이 데이터가 CAM의 전략 제안과 로봇의 경로 생성으로 되돌아가는 구조가 EBOTEC이 경쟁하는 지점입니다. 강성(rigidity) 경쟁이 아니라 지능(intelligence) 경쟁입니다.</p>
+      </div>
+      <div class="loop rv">
+        <div class="stage"><span class="t">SENSE</span><span class="d"><strong>ΣΔ 절연 전류 센싱</strong> · 23-bit 절대 위치 · 20 kHz 샘플</span></div>
+        <div class="stage"><span class="t">CONTROL</span><span class="d"><strong>FOC 전류 루프</strong> 1.5–2 kHz 대역 · DC 버스 피드포워드</span></div>
+        <div class="stage"><span class="t">SYNC</span><span class="d"><strong>EtherCAT DC</strong> · 전 축 동시 latch · PDO 계약 기반 교환</span></div>
+        <div class="stage"><span class="t">TRACE</span><span class="d"><strong>trace ID</strong> G-code 줄 → 축 명령 → 전류까지 연결</span></div>
+        <div class="stage"><span class="t">LEARN</span><span class="d"><strong>실측 부하 데이터</strong>로 CAM 전략 · 이송 속도 · 로봇 경로 재최적화</span></div>
+      </div>
+    </div>
+    <div class="stats rv">
+      <div class="stat"><div class="n">20<small>kHz</small></div><div class="l">전류 제어 루프 주파수</div></div>
+      <div class="stat"><div class="n">25<small>µs</small></div><div class="l">제어 주기 (double-update)</div></div>
+      <div class="stat"><div class="n">23<small>bit</small></div><div class="l">절대 encoder(엔코더) 분해능</div></div>
+      <div class="stat"><div class="n">6<small>axis</small></div><div class="l">로봇 · 5축 가공기 공용 제어</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPANY ================= -->
+<section id="company">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Company</span>
+      <h2>서보 드라이브부터 모션 제어기까지,<br>제어 계층 전체를 직접 설계합니다</h2>
+      <p>EBOTEC Co., Ltd.(Energy and Robot Technology)는 산업용 서보 드라이브와 EtherCAT 모션 제어 분야에서 쌓은 전력전자 하드웨어 설계 경험 위에 세워집니다. 경기 화성을 기반으로, 로봇 개발자 · 연구실 · 소규모 제조 벤처가 짧은 주기로 구조 부품을 만들고 로봇을 움직일 수 있는 제어 솔루션을 목표로 합니다.</p>
+    </div>
+    <div class="road rv">
+      <div class="m now"><div class="y">2026</div><h4>서보 드라이브 안정화</h4><p>EBO-Drive · EtherCAT 슬레이브 · 시뮬레이터 완성, 3축 직교 로봇 시연</p></div>
+      <div class="m"><div class="y">2027</div><h4>법인 설립</h4><p>정부 지원 과제 진입, 제어 라인 양산 설계</p></div>
+      <div class="m"><div class="y">2028</div><h4>3축 데스크톱 CNC 출시</h4><p>EBO-SOFT AI CAM 정식 공개</p></div>
+      <div class="m"><div class="y">2029</div><h4>6축 로봇 제어 패키지</h4><p>로봇 좌표 자동 생성 소프트웨어 상용화</p></div>
+      <div class="m"><div class="y">2030</div><h4>5축 trunnion(트러니언) 가공기</h4><p>harmonic reducer(하모닉 리듀서) 적용, simultaneous(사이멀테이니어스) 5축 양산</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact alt">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Contact</span>
+      <h2>어떤 축을 움직이려 하시나요?</h2>
+      <p>로봇 관절이든 가공기 회전축이든, 제어 구조부터 같이 봐드립니다. 파일럿 적용, 공동 R&amp;D, 기술 문의를 환영합니다.</p>
+      <p class="mono" style="margin-top:24px;font-size:13px">경기도 화성시<br>contact@ebotec.kr <span style="opacity:.5">(준비 중)</span></p>
+    </div>
+    <form class="cform rv" onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block';this.querySelector('button').disabled=true;">
+      <div class="row2">
+        <label>이름<input type="text" name="name" required></label>
+        <label>소속<input type="text" name="org"></label>
+      </div>
+      <label>이메일<input type="email" name="email" required></label>
+      <label>관심 분야
+        <select name="topic">
+          <option>6축 다관절 로봇 제어</option>
+          <option>5축 가공기 · CAM</option>
+          <option>서보 드라이브 · 제어기</option>
+          <option>시뮬레이터 · 교육</option>
+          <option>공동 R&amp;D</option>
+        </select>
+      </label>
+      <label>문의 내용<textarea name="msg"></textarea></label>
+      <button class="btn btn-primary" type="submit">문의 보내기</button>
+      <span class="ok">문의가 접수되었습니다. 영업일 기준 2일 내 회신드립니다.</span>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="EBOTEC 홈"><img src="img/logo-mark.png" alt=""><span class="wm">EBOTEC</span></a>
+    <div class="copy">
+      <span>© 2026 EBOTEC Co., Ltd. · Energy and Robot Technology</span>
+      <span class="est"><b>EBOTEC.co.kr</b> · Launched Aug 15, 2025</span>
+    </div>
+    <span class="mono">EBO-Motion · EBO-Converter · EBO-Drive · EBO-SOFT · EBO-WARE</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(b){const m=document.getElementById('menu');const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);}
+document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open')));
+
+// scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+</script>
+</body>
+</html>
