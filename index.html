@@ -5,6 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EBOTEC — 로봇과 5축 가공을 움직이는 서보·제어 솔루션</title>
 <meta name="description" content="EBOTEC은 6축 다관절 로봇과 5축 3차원 가공기를 위한 AC 서보 드라이브, EtherCAT 모션 제어기, AI CAM 자동화 소프트웨어와 시뮬레이터를 개발합니다.">
+<link rel="canonical" href="https://www.ebotec.co.kr/">
+<meta name="theme-color" content="#0B0F14">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EBOTEC">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.ebotec.co.kr/">
+<meta property="og:title" content="EBOTEC — 로봇과 5축 가공을 움직이는 서보·제어 솔루션">
+<meta property="og:description" content="EBOTEC은 6축 다관절 로봇과 5축 3차원 가공기를 위한 AC 서보 드라이브, EtherCAT 모션 제어기, AI CAM 자동화 소프트웨어와 시뮬레이터를 개발합니다.">
+<meta property="og:image" content="https://www.ebotec.co.kr/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EBOTEC — 로봇과 5축 가공을 움직이는 서보·제어 솔루션">
+<meta name="twitter:description" content="EBOTEC은 6축 다관절 로봇과 5축 3차원 가공기를 위한 AC 서보 드라이브, EtherCAT 모션 제어기, AI CAM 자동화 소프트웨어와 시뮬레이터를 개발합니다.">
+<meta name="twitter:image" content="https://www.ebotec.co.kr/img/og.png">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -129,6 +148,40 @@ section.alt{background:var(--surface)}
 .joints div{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:8px 6px;text-align:center}
 .joints b{display:block;color:var(--green);font-weight:500;font-size:13px}
 
+/* ---------- demo video ---------- */
+.vid{position:relative;margin-top:20px;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#000;aspect-ratio:1920/952}
+.vid video{width:100%;height:100%;display:block;object-fit:contain;background:#000}
+.vid-play{position:absolute;inset:0;border:0;padding:0;background:rgba(6,10,14,.45);cursor:pointer;display:grid;place-items:center;transition:background .18s}
+.vid-play:hover{background:rgba(6,10,14,.28)}
+.vid-play span{width:58px;height:58px;border-radius:50%;background:var(--green);display:grid;place-items:center;box-shadow:0 6px 22px rgba(0,0,0,.45);transition:transform .18s}
+.vid-play:hover span{transform:scale(1.06)}
+.vid-play span::after{content:"";border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #06121A;margin-left:5px}
+.vid.playing .vid-play{display:none}
+.vid.ds{aspect-ratio:1792/932}
+.vcap{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px;line-height:1.5}
+.sw-card.wide .vid{margin-top:0}
+
+/* ---------- EBO-WARE test scope ---------- */
+.ware{margin-top:64px;border:1px solid var(--line);border-radius:8px;background:var(--slate);padding:34px}
+.ware-body{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.ware-body .tag{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--green)}
+.ware-body h3{font-size:24px;font-weight:800;margin:14px 0 10px;letter-spacing:-0.02em}
+.ware-body h3 span{color:var(--green)}
+.ware-body p{color:var(--muted);font-size:15px}
+.ware-body ul{list-style:none;margin-top:18px;display:grid;gap:8px;font-size:14px;color:var(--text)}
+.ware-body li{padding-left:16px;position:relative}
+.ware-body li::before{content:"›";position:absolute;left:0;color:var(--green)}
+.ware-shot{margin:0;background:#070A0E;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.ware-shot img{width:100%;display:block}
+.ware-shot figcaption{font-family:var(--mono);font-size:10.5px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-top:1px solid var(--line)}
+.ware-note{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:12px;line-height:1.6}
+.chmap{margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}
+.chmap .h{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:14px}
+.chgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;font-family:var(--mono);font-size:11px}
+.chgrid div{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:9px 10px}
+.chgrid b{display:block;color:var(--green);font-weight:500;font-size:12px;margin-bottom:4px}
+.chgrid span{color:var(--muted)}
+
 /* data / moat */
 .moat{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .moat h2{font-size:clamp(28px,3.4vw,42px);font-weight:800;letter-spacing:-0.03em;line-height:1.2;margin:14px 0 18px}
@@ -193,7 +246,8 @@ footer .copy .est b{color:var(--green);font-weight:500}
 @media (max-width:1000px){
   .hero .wrap{grid-template-columns:1fr;min-height:0;padding-top:56px}
   .pillars{grid-template-columns:1fr}
-  .hw,.moat,.contact .wrap,.sw-card.wide{grid-template-columns:1fr}
+  .hw,.moat,.contact .wrap,.sw-card.wide,.ware-body{grid-template-columns:1fr}
+  .chgrid{grid-template-columns:repeat(3,1fr)}
   .hw-img{position:static}
   .sw{grid-template-columns:1fr}
   .stats{grid-template-columns:repeat(2,1fr)}
@@ -211,6 +265,7 @@ footer .copy .est b{color:var(--green);font-weight:500}
 @media (max-width:560px){
   section{padding:72px 0}
   .spec,.cform .row2{grid-template-columns:1fr}
+  .chgrid{grid-template-columns:repeat(2,1fr)}
   .stats{grid-template-columns:1fr}
   .stat{border-right:0;border-bottom:1px solid var(--line)}
   .stat:last-child{border-bottom:0}
@@ -355,6 +410,48 @@ footer .copy .est b{color:var(--green);font-weight:500}
         </article>
       </div>
     </div>
+
+    <div class="ware rv">
+      <div class="ware-body">
+        <div>
+          <div class="tag">EBO-WARE · VALIDATION SOFTWARE</div>
+          <h3>하드웨어를 파형으로 검증하는 <span>12채널 테스트 스코프</span></h3>
+          <p>EBO-WARE는 우리 하드웨어를 검증하기 위해 직접 만든 계측 소프트웨어입니다. USB로 드라이브에 연결하면 보드 안에서 실제로 오가는 신호 — 상 전압, 상 전류, 6개 IGBT의 PWM 게이트, ΣΔ 원시 카운트 — 를 최대 12채널로 동시에 띄우고 기록합니다. 외부 오실로스코프로는 프로브를 둘 수 없는 제어 내부 변수까지 파형으로 보이고, 서보가 실제로 돌 때 축과 기구에서 올라오는 진동·공진을 전류·속도 파형과 같은 시간축 위에서 함께 확인할 수 있습니다.</p>
+          <ul>
+            <li>12채널 동시 관측 — 상 전압 · 3상 전류 · PWM High/Low 6채널 · ΣΔ 원시 카운트</li>
+            <li>10 kHz 샘플링, 트리거(Rising · Falling · Both) · 레벨 · 포지션 설정, WAVE REC로 연속 기록</li>
+            <li>커서 측정 2조(X1·X2·Y1·Y2)와 채널별 RMS · Pk-Pk · Avg 자동 산출</li>
+            <li>구동 중 기구 진동·공진을 전류 파형과 같은 시간축에서 비교해 기계 원인과 제어 원인을 분리</li>
+            <li>Motion Validation · Live Monitor · Tuning · Digital I/O Center 통합, UART 콘솔로 즉시 명령</li>
+            <li>과전류 등 Fault가 발생한 시점의 파형과 함께 남아 원인을 그대로 역추적</li>
+          </ul>
+        </div>
+        <div>
+          <figure class="ware-shot">
+            <img src="img/eboware-scope.jpg" alt="EBO-WARE Servo Drive Monitor — 12채널 파형 측정 화면">
+            <figcaption><span>EBO-WARE · SERVO DRIVE MONITOR</span><span>12 CH · 10 kHz</span></figcaption>
+          </figure>
+          <p class="ware-note">제품 개발 단계에서는 설계 검증 장비로, 현장에서는 서보 튜닝과 고장 진단 도구로 같은 프로그램을 씁니다.</p>
+        </div>
+      </div>
+      <div class="chmap">
+        <div class="h">Channel map · 12 ch</div>
+        <div class="chgrid">
+          <div><b>CH1</b><span>SDFM Raw U</span></div>
+          <div><b>CH2</b><span>U Phase Voltage</span></div>
+          <div><b>CH3</b><span>V Phase Voltage</span></div>
+          <div><b>CH4</b><span>U Phase Current</span></div>
+          <div><b>CH5</b><span>V Phase Current</span></div>
+          <div><b>CH6</b><span>W Phase Current</span></div>
+          <div><b>CH7</b><span>PWM H_U</span></div>
+          <div><b>CH8</b><span>PWM L_U</span></div>
+          <div><b>CH9</b><span>PWM H_V</span></div>
+          <div><b>CH10</b><span>PWM L_V</span></div>
+          <div><b>CH11</b><span>PWM H_W</span></div>
+          <div><b>CH12</b><span>PWM L_W</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -387,19 +484,6 @@ footer .copy .est b{color:var(--green);font-weight:500}
         </div>
       </article>
 
-      <article class="sw-card rv">
-        <div class="tag">ROBOT PATH GENERATOR</div>
-        <h3>6축 로봇 좌표 자동 생성</h3>
-        <p>사용자는 작업 공간에서 "무엇을 어디로"만 지정합니다. 소프트웨어가 도구 자세를 포함한 작업 좌표를 만들고, 역기구학으로 6개 관절 각도 시퀀스를 생성해 EtherCAT 주기 단위 명령으로 내려보냅니다.</p>
-        <ul>
-          <li>작업 좌표 → 관절 좌표 자동 변환, 특이점 · 관절 한계 회피</li>
-          <li>가공·조립·핸들링 경로를 같은 엔진에서 생성</li>
-          <li>5축 가공기와 동일한 IK 코어 공유</li>
-        </ul>
-        <div class="joints">
-          <div><b>J1</b>base</div><div><b>J2</b>shoulder</div><div><b>J3</b>elbow</div><div><b>J4</b>wrist 1</div><div><b>J5</b>wrist 2</div><div><b>J6</b>flange</div>
-        </div>
-      </article>
 
       <article class="sw-card rv">
         <div class="tag">SIMULATOR</div>
@@ -411,6 +495,60 @@ footer .copy .est b{color:var(--green);font-weight:500}
           <li>제어기와 드라이브에 올라가는 코드와 동일한 보간 · 제어 로직 사용</li>
           <li>교육용 학습 모드 7종 제공</li>
         </ul>
+      </article>
+
+      <article class="sw-card rv">
+        <div class="tag">DEMO · EBOSOFT R03</div>
+        <h3>서보 드라이브 모니터 실행 화면</h3>
+        <p>시뮬레이터와 같은 제어 코드가 실제 드라이브에 붙어 돌아가는 화면입니다. 재생 버튼을 누르면 영상이 시작됩니다.</p>
+        <div class="vid">
+          <video preload="none" playsinline poster="img/ebosoft-r03-poster.jpg">
+            <source src="img/ebosoft-r03-demo.mp4" type="video/mp4">
+            브라우저가 비디오 재생을 지원하지 않습니다.
+          </video>
+          <button class="vid-play" type="button" aria-label="데모 영상 재생"><span></span></button>
+        </div>
+      </article>
+
+      <article class="sw-card wide rv">
+        <div>
+          <div class="tag">EBO-SOFT · DESIGN SIMULATOR</div>
+          <h3>제품을 만들기 전에, 설계를 먼저 검증합니다</h3>
+          <p>Design Simulator는 EBOTEC이 시스템 전체의 제어 알고리즘을 개발하고 검증하는 자체 시뮬레이터입니다. DC 버스 전압, 상 저항·인덕턴스, 캐리어 주파수, dead-time(데드타임), ΣΔ OSR 같은 설계 값을 넣으면 SVPWM 듀티와 6-IGBT 스위칭, 3상 전류 파형, 전류 취득 가능 구간이 이론식 그대로 계산되어 나옵니다. 기판을 뜨고 펌웨어를 올리기 전에 "이 조건에서 전류를 제대로 읽을 수 있는가"를 수식과 파형으로 먼저 확인하기 때문에, 설계 오류를 제품이 아니라 화면에서 잡습니다. EBOTEC의 핵심 기술이 가장 밀도 높게 모여 있는 소프트웨어입니다.</p>
+          <ul>
+            <li>3-shunt · 6-IGBT 인버터 모델 — SVPWM(min-max) 듀티, dead-time, 스위칭 지연까지 반영</li>
+            <li>이론 해석과 파형을 나란히 — 전기각 1주기 3상 듀티 포락선, 섹터별 게이트 타이밍, 공간 벡터</li>
+            <li>전류 × 속도 전 영역 DUTY 매트릭스로 측정 창이 확보되는 운전 영역을 한눈에 확인</li>
+            <li>ΣΔ OSR · 변조 클럭으로 결정되는 전류 취득 가능 구간 계산 → 센싱 설계 사전 검증</li>
+            <li>여기서 검증된 수식이 그대로 EBO-Drive 펌웨어와 제어 시뮬레이터 코드로 이어짐</li>
+          </ul>
+        </div>
+        <div>
+          <div class="vid ds">
+            <video preload="none" playsinline poster="img/design-simulator-poster.jpg">
+              <source src="img/design-simulator-demo.mp4" type="video/mp4">
+              브라우저가 비디오 재생을 지원하지 않습니다.
+            </video>
+            <button class="vid-play" type="button" aria-label="Design Simulator 데모 영상 재생"><span></span></button>
+          </div>
+          <p class="vcap">SVPWM 듀티 포락선 · 6-IGBT 스위칭 · 전류 취득 구간 해석 화면 — 재생 버튼을 누르면 영상이 시작됩니다.</p>
+        </div>
+      </article>
+
+      <article class="sw-card wide rv">
+        <div>
+          <div class="tag">ROBOT PATH GENERATOR</div>
+          <h3>6축 로봇 좌표 자동 생성</h3>
+          <p>사용자는 작업 공간에서 "무엇을 어디로"만 지정합니다. 소프트웨어가 도구 자세를 포함한 작업 좌표를 만들고, 역기구학으로 6개 관절 각도 시퀀스를 생성해 EtherCAT 주기 단위 명령으로 내려보냅니다.</p>
+          <ul>
+            <li>작업 좌표 → 관절 좌표 자동 변환, 특이점 · 관절 한계 회피</li>
+            <li>가공·조립·핸들링 경로를 같은 엔진에서 생성</li>
+            <li>5축 가공기와 동일한 IK 코어 공유</li>
+          </ul>
+        </div>
+        <div class="joints">
+          <div><b>J1</b>base</div><div><b>J2</b>shoulder</div><div><b>J3</b>elbow</div><div><b>J4</b>wrist 1</div><div><b>J5</b>wrist 2</div><div><b>J6</b>flange</div>
+        </div>
       </article>
 
       <article class="sw-card rv" style="grid-column:1/-1">
@@ -515,6 +653,15 @@ document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>d
 // scroll reveal
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// demo video: play button overlay
+document.querySelectorAll('.vid').forEach(box=>{
+  const v=box.querySelector('video'), btn=box.querySelector('.vid-play');
+  if(!v||!btn) return;
+  btn.addEventListener('click',()=>{box.classList.add('playing');v.controls=true;v.play();});
+  v.addEventListener('play',()=>box.classList.add('playing'));
+  v.addEventListener('ended',()=>box.classList.remove('playing'));
+});
 
 </script>
 </body>
