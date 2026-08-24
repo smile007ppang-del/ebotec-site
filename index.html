@@ -5,25 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EBOTEC — 로봇과 5축 가공을 움직이는 서보·제어 솔루션</title>
 <meta name="description" content="EBOTEC은 6축 다관절 로봇과 5축 3차원 가공기를 위한 AC 서보 드라이브, EtherCAT 모션 제어기, AI CAM 자동화 소프트웨어와 시뮬레이터를 개발합니다.">
-<link rel="canonical" href="https://www.ebotec.co.kr/">
-<meta name="theme-color" content="#0B0F14">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="EBOTEC">
-<meta property="og:locale" content="ko_KR">
-<meta property="og:url" content="https://www.ebotec.co.kr/">
-<meta property="og:title" content="EBOTEC — 로봇과 5축 가공을 움직이는 서보·제어 솔루션">
-<meta property="og:description" content="EBOTEC은 6축 다관절 로봇과 5축 3차원 가공기를 위한 AC 서보 드라이브, EtherCAT 모션 제어기, AI CAM 자동화 소프트웨어와 시뮬레이터를 개발합니다.">
-<meta property="og:image" content="https://www.ebotec.co.kr/img/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="EBOTEC — 로봇과 5축 가공을 움직이는 서보·제어 솔루션">
-<meta name="twitter:description" content="EBOTEC은 6축 다관절 로봇과 5축 3차원 가공기를 위한 AC 서보 드라이브, EtherCAT 모션 제어기, AI CAM 자동화 소프트웨어와 시뮬레이터를 개발합니다.">
-<meta name="twitter:image" content="https://www.ebotec.co.kr/img/og.png">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -69,7 +50,7 @@ img{max-width:100%;display:block}
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;min-height:calc(100vh - 64px);padding-top:72px;padding-bottom:72px}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--green);text-transform:uppercase;display:flex;align-items:center;gap:10px}
-.eyebrow::before{content:"";width:22px;height:1px;background:var(--green)}
+.eyebrow::before{content:"";flex:none;width:22px;height:22px;background:url(img/logo-mark.png) center/contain no-repeat}
 .hero h1{font-size:clamp(34px,4.4vw,58px);line-height:1.14;font-weight:800;letter-spacing:-0.02em;margin:22px 0 24px}
 .hero h1 em{font-style:normal;color:var(--green)}
 .hero p.lead{font-size:18px;color:var(--muted);max-width:540px;font-weight:400}
@@ -109,6 +90,15 @@ section.alt{background:var(--surface)}
 .pillar li{display:flex;gap:10px;align-items:flex-start}
 .pillar li::before{content:"";flex:none;width:6px;height:6px;margin-top:8px;background:var(--green);border-radius:1px}
 .pillar svg{width:44px;height:44px;stroke:var(--green);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.pillars.four{grid-template-columns:repeat(2,1fr)}
+
+/* technology — EBOTEC 제어 기술 리스트 */
+.techlist{margin-top:20px;border:1px solid var(--line);border-radius:8px;background:#070A0E;padding:30px 34px}
+.techlist .h{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--green);margin-bottom:20px}
+.techlist .item{display:grid;grid-template-columns:260px 1fr;gap:24px;padding:15px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.techlist .item:last-child{border:0;padding-bottom:0}
+.techlist .t{font-family:var(--mono);font-size:13.5px;color:var(--text)}
+.techlist .d{color:var(--muted);font-size:14.5px}
 
 /* hardware */
 .hw{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
@@ -245,7 +235,9 @@ footer .copy .est b{color:var(--green);font-weight:500}
 /* responsive */
 @media (max-width:1000px){
   .hero .wrap{grid-template-columns:1fr;min-height:0;padding-top:56px}
-  .pillars{grid-template-columns:1fr}
+  .pillars,.pillars.four{grid-template-columns:1fr}
+  .techlist{padding:26px 22px}
+  .techlist .item{grid-template-columns:1fr;gap:6px}
   .hw,.moat,.contact .wrap,.sw-card.wide,.ware-body{grid-template-columns:1fr}
   .chgrid{grid-template-columns:repeat(3,1fr)}
   .hw-img{position:static}
@@ -281,7 +273,8 @@ footer .copy .est b{color:var(--green);font-weight:500}
       <li><a href="#solutions">솔루션</a></li>
       <li><a href="#hardware">하드웨어</a></li>
       <li><a href="#software">소프트웨어</a></li>
-      <li><a href="#data">기술</a></li>
+      <li><a href="#tech">기술</a></li>
+      <li><a href="#patent">특허</a></li>
       <li><a href="#company">회사</a></li>
     </ul>
     <a href="#contact" class="cta">기술 상담 요청</a>
@@ -295,7 +288,7 @@ footer .copy .est b{color:var(--green);font-weight:500}
     <div>
       <span class="eyebrow">Energy &amp; Robot Technology</span>
       <h1>EBO-Motion Software delivers<br><em>High-Precision Robot Control</em></h1>
-      <p class="lead">EBOTEC은 6축 다관절 로봇과 5축 3차원 가공기가 공유하는 핵심, 즉 AC 서보 드라이브 · EtherCAT 모션 제어기 · AI 기반 경로 생성 소프트웨어를 직접 설계합니다. 모터 전류 한 샘플부터 G-code 한 줄까지, 전 계층을 한 회사가 책임집니다.</p>
+      <p class="lead">EBOTEC 시리즈는 6축 다관절 로봇과 5축 3차원 가공기를 하나의 플랫폼에서 제어할 수 있는 EtherCAT 기반 모션 제어기로, 자체 LLM AI를 활용한 지능형 경로 생성 소프트웨어를 통합한 제품입니다.</p>
       <div class="actions">
         <a href="#solutions" class="btn btn-primary">솔루션 보기 →</a>
         <a href="#contact" class="btn btn-ghost">기술 상담 요청</a>
@@ -303,11 +296,11 @@ footer .copy .est b{color:var(--green);font-weight:500}
     </div>
     <div class="hero-stack">
       <div class="panel-frame">
-        <img src="img/panel.png" alt="EBO-Motion, EBO-Converter, EBO-Drive 전면 패널">
+        <img src="img/panel.jpg" alt="EBO-Motion, EBO-Converter, EBO-Drive 전면 패널">
       </div>
       <div class="panel-cap">
         <b>EBO-SERIES CONTROL LINE</b>
-        <span>마스터 제어기 · 전력 변환기 · 서보 드라이브 ×3<br>DIN 레일 위에서 하나로 연결되는 통합 제어 라인</span>
+        <span>Master Controller · Power Converter · Slave Servo Drive ×3을 기본으로 구성하며, 최대 Slave 6개까지 확장 가능합니다.<br>각 Slave Servo Drive는 2축으로 구성됩니다.</span>
       </div>
     </div>
   </div>
@@ -318,42 +311,45 @@ footer .copy .est b{color:var(--green);font-weight:500}
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">Solutions</span>
-      <h2>가공기 회사도, 로봇 회사도 아닙니다.<br>둘을 움직이는 제어 계층을 만듭니다.</h2>
-      <p>다관절 로봇의 관절과 5축 가공기의 회전축은 같은 서보, 같은 실시간 버스, 같은 좌표 변환 문제를 공유합니다. EBOTEC은 그 공통 계층을 제품화합니다.</p>
+      <h2>로봇과 정밀 가공 장비<br>통합 모션 제어</h2>
+      <p>로봇과 정밀 가공 장비를 위한 통합 모션 제어 플랫폼<br>EBOTEC은 다관절 로봇과 5축 가공기에 필요한 서보, EtherCAT, 모션 제어 기술을 하나의 플랫폼으로 통합하여 다양한 기계 시스템의 정밀 제어를 구현합니다.</p>
     </div>
     <div class="pillars rv">
       <article class="pillar">
         <svg viewBox="0 0 48 48"><path d="M8 40h10M13 40V28l8-10 10 4 6-10"/><circle cx="13" cy="28" r="3"/><circle cx="21" cy="18" r="3"/><circle cx="31" cy="22" r="3"/><circle cx="37" cy="12" r="3"/><path d="M37 9V6h4"/></svg>
         <div class="tag" style="margin-top:18px">ROBOT</div>
         <h3>6축 다관절 로봇 제어</h3>
-        <p>관절 6개에 서보 6축. 작업 좌표에서 관절 각도까지 역기구학을 제어기 안에서 풀고, EtherCAT 주기마다 동기 명령을 내립니다.</p>
+        <p>6축 서보 동기 제어와 역기구학 기반의 로봇 모션 제어를 하나의 제어기에서 수행하며, EtherCAT 실시간 통신을 통해 각 관절의 정밀 동작을 구현합니다.</p>
         <ul>
-          <li>6축 IK · FK, 특이점 회피, 관절 한계 처리</li>
-          <li>로봇 좌표 자동 생성 소프트웨어 (작업 → 관절 경로)</li>
-          <li>CiA402 규격 축 제어, 1 ms 이하 주기</li>
+          <li>6축 IK(Inverse Kinematics)와 FK(Forward Kinematics), 특이점 회피 및 관절 한계 처리</li>
+          <li>작업 좌표 기반 로봇 경로 자동 생성 소프트웨어</li>
+          <li>CiA402 기반 다축 서보 제어</li>
+          <li>EtherCAT 25 µs 이하 실시간 동기 제어</li>
         </ul>
       </article>
       <article class="pillar">
         <svg viewBox="0 0 48 48"><path d="M24 6v14M18 20h12l-2 8H20z"/><ellipse cx="24" cy="36" rx="14" ry="5"/><path d="M10 36v4c0 3 6 5 14 5s14-2 14-5v-4M6 30l4 2M42 30l-4 2"/></svg>
-        <div class="tag" style="margin-top:18px">5-AXIS CNC</div>
-        <h3>5축 3차원 가공 기술</h3>
-        <p>trunnion(트러니언) A·B 회전축과 X·Y·Z 직선축의 simultaneous(사이멀테이니어스) 5축 제어. 보간·look-ahead·가감속을 직접 구현해 가공 품질을 제어합니다.</p>
+        <div class="tag" style="margin-top:18px">5 AXIS CNC</div>
+        <h3>5축 3차원 정밀 가공 제어</h3>
+        <p>X · Y · Z 직선축과 A · B 회전축을 동시에 제어하고, 보간과 Look-ahead, 가감속 제어를 통해 5축 가공 경로를 생성합니다.</p>
         <ul>
-          <li>BA-TRT trunnion(트러니언) 기구학, 횡형 spindle(스핀들)</li>
-          <li>G-code 파싱 → IK → 미세 보간까지 자체 제어기</li>
-          <li>알루미늄 구조 부품 단납기 가공에 최적화</li>
+          <li>BA-TRT Trunnion 기구학 및 횡형 Spindle 구조 대응</li>
+          <li>G-code Parsing 및 5축 기구학 변환</li>
+          <li>5축 동시 보간 및 Look-ahead 가감속 제어</li>
+          <li>알루미늄 구조 부품 ±0.015 mm 수준의 3차원 정밀 가공</li>
         </ul>
       </article>
       <article class="pillar">
         <svg viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="32" rx="3"/><path d="M8 24h6l3-8 4 16 4-12 3 6 2-2h10"/></svg>
-        <div class="tag" style="margin-top:18px">SERVO &amp; CONTROLLER</div>
+        <div class="tag" style="margin-top:18px">SERVO DRIVE &amp; MOTION CONTROLLER</div>
         <h3>서보 드라이브 · 모션 제어기</h3>
-        <p>AC 서보 드라이브와 EtherCAT 마스터 제어기를 자체 설계합니다. 전류 루프부터 버스 동기까지 한 팀이 튜닝합니다.</p>
+        <p>AC 서보 드라이브와 EtherCAT 마스터 제어기를 자체 설계하며, 전류 제어와 다축 동기 제어에 필요한 핵심 알고리즘을 보유하고 있습니다. EtherCAT 마스터에서 각 서보축을 통합 제어하고, 다축 및 다관절 운전에서 발생하는 기구 공진과 축간 간섭을 억제하는 제어 기술을 적용합니다.</p>
         <ul>
-          <li>FOC · SVPWM, 20 kHz 전류 루프, 시그마-델타 절연 전류 센싱</li>
-          <li>EtherCAT DC 동기, 1 µs급 지터</li>
-          <li>EnDat 2.2 · BiSS-C · T-format · Resolver 등 다중 encoder(엔코더) 인터페이스</li>
-          <li>linear scale(리니어 스케일) 2차 피드백으로 full-closed loop(풀 클로즈드 루프) 제어</li>
+          <li>FOC · SVPWM 기반 20 kHz 전류 제어</li>
+          <li>Sigma-Delta 절연 전류 센싱</li>
+          <li>EtherCAT DC 동기 및 1 µs급 동기 정밀도</li>
+          <li>EnDat 2.2 · BiSS-C · T-format · Resolver 엔코더 인터페이스</li>
+          <li>Linear Scale 2차 피드백 기반 Full-Closed Loop 제어</li>
         </ul>
       </article>
     </div>
@@ -365,47 +361,49 @@ footer .copy .est b{color:var(--green);font-weight:500}
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">Hardware</span>
-      <h2>세 개의 모듈, 하나의 제어 라인</h2>
-      <p>제어기 · 전력 변환기 · 서보 드라이브를 DIN 레일 위에 나란히 연결합니다. 로봇 6축이든 가공기 5축이든 같은 모듈을 조합합니다.</p>
+      <h2>DIN Rail 기반<br>모듈형 제어 시스템</h2>
+      <p>Master Controller, Power Converter, Slave Servo Drive를 DIN 레일에 연결하여 구성하며, 로봇 및 5축 가공기와 같은 다축 시스템의 통합 제어에 적용합니다.</p>
     </div>
     <div class="hw">
       <div class="hw-img rv">
-        <img src="img/panel.png" alt="EBOTEC 제어 라인 전면 패널">
+        <img src="img/panel.jpg" alt="EBOTEC 제어 라인 전면 패널">
         <div class="cap"><span>FRONT PANEL · R12</span><span>EBO-Motion · EBO-Converter · EBO-Drive ×3</span></div>
       </div>
       <div>
         <article class="product rv">
-          <header><h3>EBO-<span>Motion</span></h3><span class="role">Master controller</span></header>
-          <p>EtherCAT 마스터와 실시간 모션 엔진을 담은 제어기. 로봇 IK와 5축 CAM 경로가 이 안에서 축 명령으로 바뀝니다.</p>
+          <header><h3>EBO-<span>Motion</span></h3><span class="role">Master Controller</span></header>
+          <p>EtherCAT Master와 실시간 Motion Engine을 탑재한 상위 제어기입니다. 로봇 기구학 연산과 5축 가공 경로를 처리하고 각 축의 실시간 제어 명령을 생성합니다.</p>
           <div class="spec">
-            <div><b>Real-time</b><span>전용 실시간 코어, 1 ms 이하 주기</span></div>
-            <div><b>Fieldbus</b><span>EtherCAT X1/X2, LAN X3</span></div>
-            <div><b>I/O</b><span>디지털 16P, RJ12 서비스</span></div>
-            <div><b>Display</b><span>상태 LCD (RUN · OP · SYNC)</span></div>
-            <div><b>Power</b><span>24 V DC, USB-C 5 V</span></div>
+            <div><b>Real-time</b><span>전용 Real-time Core, EtherCAT Cycle 25 µs 이하</span></div>
+            <div><b>Fieldbus</b><span>EtherCAT ×2, LAN ×3</span></div>
+            <div><b>I/O</b><span>Digital I/O 16P, RJ12 Service Port</span></div>
+            <div><b>Display</b><span>상태 표시 LCD (RUN · OP · SYNC)</span></div>
+            <div><b>USB</b><span>USB Type-C UART Interface</span></div>
+            <div><b>Power</b><span>24 VDC</span></div>
           </div>
         </article>
         <article class="product rv">
           <header><h3>EBO-<span>Converter</span></h3><span class="role">Power converter</span></header>
-          <p>단상/삼상 입력을 DC 버스로 변환해 드라이브 전체에 공급합니다. 버스 전압 정보를 드라이브에 전달해 전압 변동을 미리 보상합니다.</p>
+          <p>단상 또는 삼상 AC 전원을 입력받아 DC 전압으로 변환하고, 공통 DC Bus를 통해 전체 Slave Servo Drive에 전력을 공급합니다. 제어 전원은 AC 단상 220 V를 입력받아 DC 24 V로 변환하여 시스템 전체에 공급합니다. 또한 AC 입력 전압 정보를 실시간으로 전달하여 전원 상태 감시 및 제어에 활용합니다.</p>
           <div class="spec">
-            <div><b>Input</b><span>AC 주전원 6P 7.62 mm</span></div>
-            <div><b>DC bus</b><span>드라이브 공유 버스</span></div>
-            <div><b>Feedforward</b><span>DC 버스 전압 실시간 공유</span></div>
-            <div><b>Status</b><span>2-digit 7-seg, RJ12</span></div>
+            <div><b>Input</b><span>AC 220 V, 1PH / 3PH 지원, 6P 7.62 mm</span></div>
+            <div><b>DC Bus</b><span>전체 Slave Servo Drive 공통 DC Bus</span></div>
+            <div><b>Control Power</b><span>DC 24 V 시스템 제어 전원 공급</span></div>
+            <div><b>AC Voltage Monitor</b><span>입력 전압 상태 실시간 공유</span></div>
+            <div><b>Fault Link</b><span>Fault 상태 실시간 공유 및 연동</span></div>
           </div>
         </article>
         <article class="product rv">
-          <header><h3>EBO-<span>Drive</span></h3><span class="role">AC servo drive</span></header>
-          <p>1축 AC 서보 드라이브. 전류·속도·위치 3중 루프와 CiA402 슬레이브를 한 보드에서 처리합니다.</p>
+          <header><h3>EBO-<span>Drive</span></h3><span class="role">2축 AC Servo Drive</span></header>
+          <p>전류 · 속도 · 위치 제어와 EtherCAT CiA402 Slave 기능을 하나의 드라이브에서 처리하며, 각 축의 실시간 서보 제어를 수행합니다.</p>
           <div class="spec">
-            <div><b>Current loop</b><span>20 kHz, double-update 25 µs</span></div>
-            <div><b>Sensing</b><span>AMC1304 절연 ΣΔ 변조기</span></div>
+            <div><b>Current Control</b><span>20 kHz 전류 제어, 25 µs Double Update</span></div>
+            <div><b>Current Sensing</b><span>AMC1304 절연 Sigma-Delta 방식</span></div>
             <div><b>Encoder</b><span>23-bit ABS · EnDat 2.2 · BiSS-C · T-format · Resolver</span></div>
-            <div><b>Full-closed</b><span>리니어 스케일 2차 encoder 입력 (A/B/Z · EnDat)</span></div>
+            <div><b>Full-Closed Loop</b><span>Linear Scale 2차 Encoder 입력 지원</span></div>
             <div><b>Fieldbus</b><span>EtherCAT X1 IN / X2 OUT</span></div>
-            <div><b>Motor</b><span>6P 5.08 mm, U/V/W + PE</span></div>
-            <div><b>Status</b><span>2-digit 7-seg, RJ12</span></div>
+            <div><b>Motor</b><span>U · V · W + PE, Motor Connector</span></div>
+            <div><b>Status</b><span>2-Digit Display, RJ12 Service Port</span></div>
           </div>
         </article>
       </div>
@@ -415,15 +413,17 @@ footer .copy .est b{color:var(--green);font-weight:500}
       <div class="ware-body">
         <div>
           <div class="tag">EBO-WARE · VALIDATION SOFTWARE</div>
-          <h3>하드웨어를 파형으로 검증하는 <span>12채널 테스트 스코프</span></h3>
-          <p>EBO-WARE는 우리 하드웨어를 검증하기 위해 직접 만든 계측 소프트웨어입니다. USB로 드라이브에 연결하면 보드 안에서 실제로 오가는 신호 — 상 전압, 상 전류, 6개 IGBT의 PWM 게이트, ΣΔ 원시 카운트 — 를 최대 12채널로 동시에 띄우고 기록합니다. 외부 오실로스코프로는 프로브를 둘 수 없는 제어 내부 변수까지 파형으로 보이고, 서보가 실제로 돌 때 축과 기구에서 올라오는 진동·공진을 전류·속도 파형과 같은 시간축 위에서 함께 확인할 수 있습니다.</p>
+          <h3><span>12채널</span> 기반 서보 제어 검증 및 계측 소프트웨어</h3>
+          <p>EBO-WARE는 EBO-Drive의 개발 검증과 현장 튜닝을 위해 자체 개발한 계측 소프트웨어입니다. USB 통신을 통해 드라이브 내부의 전류, 전압, PWM, Encoder 및 제어 변수를 최대 12채널까지 동시에 모니터링하고 기록할 수 있습니다. 서보 운전 중 발생하는 진동과 공진도 전류 · 속도 · 위치 파형과 함께 확인하여 기구계와 제어계의 영향을 분석할 수 있습니다.</p>
           <ul>
-            <li>12채널 동시 관측 — 상 전압 · 3상 전류 · PWM High/Low 6채널 · ΣΔ 원시 카운트</li>
-            <li>10 kHz 샘플링, 트리거(Rising · Falling · Both) · 레벨 · 포지션 설정, WAVE REC로 연속 기록</li>
-            <li>커서 측정 2조(X1·X2·Y1·Y2)와 채널별 RMS · Pk-Pk · Avg 자동 산출</li>
-            <li>구동 중 기구 진동·공진을 전류 파형과 같은 시간축에서 비교해 기계 원인과 제어 원인을 분리</li>
-            <li>Motion Validation · Live Monitor · Tuning · Digital I/O Center 통합, UART 콘솔로 즉시 명령</li>
-            <li>과전류 등 Fault가 발생한 시점의 파형과 함께 남아 원인을 그대로 역추적</li>
+            <li>12채널 동시 모니터링 및 파형 기록</li>
+            <li>상 전압 · 3상 전류 · PWM · ΣΔ Current Sensing · 내부 제어 변수 측정</li>
+            <li>10 kHz Sampling, Rising · Falling · Both Trigger 및 Trigger Level 설정</li>
+            <li>X1 · X2 · Y1 · Y2 Cursor 측정, RMS · Pk-Pk · Average 자동 계산</li>
+            <li>전류 · 속도 · 위치 파형을 이용한 진동 및 공진 분석</li>
+            <li>Motion Validation, Live Monitor, Tuning, Digital I/O 기능 통합</li>
+            <li>Fault 발생 전후 파형 저장을 통한 원인 분석</li>
+            <li>UART Console을 이용한 실시간 명령 및 상태 확인</li>
           </ul>
         </div>
         <div>
@@ -431,24 +431,7 @@ footer .copy .est b{color:var(--green);font-weight:500}
             <img src="img/eboware-scope.jpg" alt="EBO-WARE Servo Drive Monitor — 12채널 파형 측정 화면">
             <figcaption><span>EBO-WARE · SERVO DRIVE MONITOR</span><span>12 CH · 10 kHz</span></figcaption>
           </figure>
-          <p class="ware-note">제품 개발 단계에서는 설계 검증 장비로, 현장에서는 서보 튜닝과 고장 진단 도구로 같은 프로그램을 씁니다.</p>
-        </div>
-      </div>
-      <div class="chmap">
-        <div class="h">Channel map · 12 ch</div>
-        <div class="chgrid">
-          <div><b>CH1</b><span>SDFM Raw U</span></div>
-          <div><b>CH2</b><span>U Phase Voltage</span></div>
-          <div><b>CH3</b><span>V Phase Voltage</span></div>
-          <div><b>CH4</b><span>U Phase Current</span></div>
-          <div><b>CH5</b><span>V Phase Current</span></div>
-          <div><b>CH6</b><span>W Phase Current</span></div>
-          <div><b>CH7</b><span>PWM H_U</span></div>
-          <div><b>CH8</b><span>PWM L_U</span></div>
-          <div><b>CH9</b><span>PWM H_V</span></div>
-          <div><b>CH10</b><span>PWM L_V</span></div>
-          <div><b>CH11</b><span>PWM H_W</span></div>
-          <div><b>CH12</b><span>PWM L_W</span></div>
+          <p class="ware-note">제품 개발 단계에서는 설계 검증용으로 사용하고, 현장에서는 서보 튜닝과 Fault 분석용으로 동일한 프로그램을 사용합니다.</p>
         </div>
       </div>
     </div>
@@ -460,26 +443,25 @@ footer .copy .est b{color:var(--green);font-weight:500}
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">Software</span>
-      <h2>사람은 결정하고, 계산은 결정적으로</h2>
-      <p>AI는 "무엇을 어떻게 깎을지", "로봇이 어느 자세로 갈지" 같은 판단 계층에만 들어갑니다. 경로 계산과 실시간 제어는 끝까지 결정적(deterministic) 코드가 맡습니다. 검증 가능해야 현장에 쓸 수 있기 때문입니다.</p>
+      <h2>EBO-SOFT LLM 기반<br>경로 생성과 실시간 제어 분리</h2>
+      <p>EBO-SOFT LLM AI는 가공 조건, 로봇 자세, 경로 생성 등 상위 판단을 담당하고, 실제 경로 연산과 실시간 제어는 Deterministic 제어 코드로 처리합니다. 이를 통해 현장에서 요구되는 제어의 재현성과 검증 가능성을 확보합니다.</p>
     </div>
     <div class="sw">
       <article class="sw-card wide rv">
         <div>
-          <div class="tag">EBO-SOFT · AI CAM</div>
-          <h3>AI CAM 자동화 소프트웨어</h3>
-          <p>CAD 모델을 읽어 feature(피처)를 인식하고, roughing(러핑) · finishing(피니싱) 전략과 tool engagement(툴 인게이지먼트), chip load(칩 로드)를 AI가 제안합니다. 확정된 전략은 결정적 toolpath(툴패스) 엔진이 계산하고, 드라이브에서 올라온 실제 절삭 데이터로 다음 제안이 다시 좋아집니다.</p>
+          <div class="tag">EBO-SOFT · LLM AI CAM</div>
+          <h3>LLM 기반 AI CAM 자동화 소프트웨어</h3>
           <ul>
-            <li>Design → Machine → Verify → Post 4단계 워크스페이스</li>
-            <li>Part → Feature → Strategy 3계층 구조, AI는 Strategy 선택에만 관여</li>
-            <li>adaptive clearing(어댑티브 클리어링) · trochoidal(트로코이달) 등 HSM 전략 내장</li>
-            <li>서보 부하 실측 기반 G-code 이송 속도 자동 최적화</li>
+            <li>Design → Machine → Verify → Post 4단계 작업 흐름</li>
+            <li>Part → Feature → Strategy 3계층 구조, AI는 가공 Strategy 선택에 적용</li>
+            <li>Adaptive Clearing · Trochoidal 등 HSM 가공 전략 지원</li>
+            <li>서보 부하 실측 데이터를 이용한 G-code 이송 속도 자동 최적화</li>
           </ul>
         </div>
         <div class="flow">
-          <div class="row"><div class="node">CAD<br>STEP / 3D</div><div class="arr">→</div><div class="node ai">AI<br>feature · 전략 제안</div><div class="arr">→</div><div class="node">Toolpath<br>결정적 계산</div></div>
-          <div class="row"><div class="node">G-code<br>Post</div><div class="arr">→</div><div class="node">EBO-Motion<br>IK · 보간</div><div class="arr">→</div><div class="node">EBO-Drive<br>FOC · 전류</div></div>
-          <div class="row"><div class="node ai" style="grid-column:1/-1">↺ 절삭 부하 · 전류 · 추종 오차 데이터가 다음 AI 제안으로 되돌아감</div></div>
+          <div class="row"><div class="node">CAD<br>STEP / 3D</div><div class="arr">→</div><div class="node ai">AI Feature<br>가공 전략 제안</div><div class="arr">→</div><div class="node">Toolpath<br>경로 계산</div></div>
+          <div class="row"><div class="node">G-code<br>Post</div><div class="arr">→</div><div class="node">EBO-Motion<br>IK · 보간</div><div class="arr">→</div><div class="node">EBO-Drive<br>FOC 전류 제어</div></div>
+          <div class="row"><div class="node ai" style="grid-column:1/-1">↺ 절삭 부하 · 전류 · 추종 오차 데이터를 다음 AI 가공 전략에 반영</div></div>
           <div class="note">판단은 AI, 계산은 결정적 코드, 검증은 실측 데이터</div>
         </div>
       </article>
@@ -487,20 +469,21 @@ footer .copy .est b{color:var(--green);font-weight:500}
 
       <article class="sw-card rv">
         <div class="tag">SIMULATOR</div>
-        <h3>제어 · 가공 시뮬레이터</h3>
-        <p>실제 장비에 내리기 전에 PC에서 끝까지 돌려봅니다. 5축 기구학, 로봇 동작, 그리고 서보 내부의 FOC 전류 제어까지 같은 코드로 재현합니다.</p>
+        <h3>로봇 · 5축 가공 · 서보 제어 시뮬레이터</h3>
+        <p>실제 장비 적용 전에 5축 가공기와 6축 로봇의 기구학 및 동작을 검증하고, 서보 드라이브의 FOC 전류 제어까지 PC 환경에서 시뮬레이션합니다.</p>
         <ul>
-          <li>BA-TRT 5축 · 6축 로봇 기구학 검증, 충돌 · 간섭 확인</li>
-          <li>FOC · SVPWM 시뮬레이터 — 전류 센싱 창, dead-time(데드타임), encoder(엔코더) 오프셋 오차까지 재현</li>
-          <li>제어기와 드라이브에 올라가는 코드와 동일한 보간 · 제어 로직 사용</li>
-          <li>교육용 학습 모드 7종 제공</li>
+          <li>BA-TRT 5축 가공기 및 6축 로봇 기구학 검증</li>
+          <li>가공 경로, 로봇 동작 및 충돌 · 간섭 확인</li>
+          <li>FOC · SVPWM 전류 제어 시뮬레이션</li>
+          <li>전류 Sampling, Dead-time, Encoder Offset 등 제어 오차 조건 반영</li>
+          <li>실제 제어기에 적용되는 보간 및 제어 알고리즘 기반 검증</li>
         </ul>
       </article>
 
       <article class="sw-card rv">
-        <div class="tag">DEMO · EBOSOFT R03</div>
+        <div class="tag">EBO-SOFT</div>
         <h3>서보 드라이브 모니터 실행 화면</h3>
-        <p>시뮬레이터와 같은 제어 코드가 실제 드라이브에 붙어 돌아가는 화면입니다. 재생 버튼을 누르면 영상이 시작됩니다.</p>
+        <p>시뮬레이터에서 검증한 동일한 제어 코드를 실제 서보 드라이브에 적용하여 동작을 확인하는 화면입니다. 서보 드라이브 제어 코드와 G-code를 입력하여 실제 장비 적용 전 동작과 제어 상태를 확인하는 EBOTEC 설계 검증 소프트웨어입니다.<br>재생 버튼을 누르면 실제 동작 영상을 확인할 수 있습니다.</p>
         <div class="vid">
           <video preload="none" playsinline poster="img/ebosoft-r03-poster.jpg">
             <source src="img/ebosoft-r03-demo.mp4" type="video/mp4">
@@ -512,15 +495,16 @@ footer .copy .est b{color:var(--green);font-weight:500}
 
       <article class="sw-card wide rv">
         <div>
-          <div class="tag">EBO-SOFT · DESIGN SIMULATOR</div>
-          <h3>제품을 만들기 전에, 설계를 먼저 검증합니다</h3>
-          <p>Design Simulator는 EBOTEC이 시스템 전체의 제어 알고리즘을 개발하고 검증하는 자체 시뮬레이터입니다. DC 버스 전압, 상 저항·인덕턴스, 캐리어 주파수, dead-time(데드타임), ΣΔ OSR 같은 설계 값을 넣으면 SVPWM 듀티와 6-IGBT 스위칭, 3상 전류 파형, 전류 취득 가능 구간이 이론식 그대로 계산되어 나옵니다. 기판을 뜨고 펌웨어를 올리기 전에 "이 조건에서 전류를 제대로 읽을 수 있는가"를 수식과 파형으로 먼저 확인하기 때문에, 설계 오류를 제품이 아니라 화면에서 잡습니다. EBOTEC의 핵심 기술이 가장 밀도 높게 모여 있는 소프트웨어입니다.</p>
+          <div class="tag">DESIGN SIMULATOR</div>
+          <h3>설계 단계에서 전류 센싱과<br>PWM 동작 범위를 사전 검증합니다</h3>
+          <p>Design Simulator는 EBOTEC의 전력변환 및 서보 제어 알고리즘을 설계하고 사전 검증하기 위한 자체 시뮬레이터입니다. DC Bus 전압, 상 저항 · 인덕턴스, Carrier 주파수, Dead-time, ΣΔ OSR 등의 설계 조건을 입력하면 SVPWM Duty, 6-IGBT Switching, 3상 전류 파형 및 전류 Sampling 가능 구간을 계산합니다. 이를 통해 PCB 제작과 펌웨어 적용 전에 전류 센싱 조건과 PWM 동작 범위를 확인하고, 설계 단계에서 발생할 수 있는 문제를 사전에 검토하여 설계 시간을 크게 단축할 수 있습니다.</p>
           <ul>
-            <li>3-shunt · 6-IGBT 인버터 모델 — SVPWM(min-max) 듀티, dead-time, 스위칭 지연까지 반영</li>
-            <li>이론 해석과 파형을 나란히 — 전기각 1주기 3상 듀티 포락선, 섹터별 게이트 타이밍, 공간 벡터</li>
-            <li>전류 × 속도 전 영역 DUTY 매트릭스로 측정 창이 확보되는 운전 영역을 한눈에 확인</li>
-            <li>ΣΔ OSR · 변조 클럭으로 결정되는 전류 취득 가능 구간 계산 → 센싱 설계 사전 검증</li>
-            <li>여기서 검증된 수식이 그대로 EBO-Drive 펌웨어와 제어 시뮬레이터 코드로 이어짐</li>
+            <li>3-Shunt · 6-IGBT Inverter 모델 기반 SVPWM Duty 계산</li>
+            <li>Dead-time 및 Switching Delay를 포함한 Gate Timing 해석</li>
+            <li>전기각 1주기의 3상 Duty, Sector별 Switching 상태 및 Space Vector 확인</li>
+            <li>전류 · 속도 운전 영역별 Duty 분석을 통한 전류 Sampling 구간 확인</li>
+            <li>ΣΔ OSR 및 Modulator Clock 조건에 따른 전류 취득 가능 구간 계산</li>
+            <li>시뮬레이터에서 검증한 제어식과 알고리즘을 EBO-Drive Firmware에 적용</li>
           </ul>
         </div>
         <div>
@@ -531,86 +515,177 @@ footer .copy .est b{color:var(--green);font-weight:500}
             </video>
             <button class="vid-play" type="button" aria-label="Design Simulator 데모 영상 재생"><span></span></button>
           </div>
-          <p class="vcap">SVPWM 듀티 포락선 · 6-IGBT 스위칭 · 전류 취득 구간 해석 화면 — 재생 버튼을 누르면 영상이 시작됩니다.</p>
+          <p class="vcap">SVPWM Duty Envelope · 6-IGBT 스위칭 · 전류 취득 구간 해석 화면 — 재생 버튼을 누르면 시뮬레이션 영상이 시작됩니다.</p>
         </div>
       </article>
 
       <article class="sw-card wide rv">
         <div>
           <div class="tag">ROBOT PATH GENERATOR</div>
-          <h3>6축 로봇 좌표 자동 생성</h3>
-          <p>사용자는 작업 공간에서 "무엇을 어디로"만 지정합니다. 소프트웨어가 도구 자세를 포함한 작업 좌표를 만들고, 역기구학으로 6개 관절 각도 시퀀스를 생성해 EtherCAT 주기 단위 명령으로 내려보냅니다.</p>
+          <h3>6축 로봇 좌표 및 경로 자동 생성</h3>
+          <p>사용자가 작업 위치와 동작 조건을 지정하면 소프트웨어가 Tool 자세와 작업 좌표를 생성하고, 역기구학 연산을 통해 6축 관절 경로로 변환합니다. 생성된 관절 명령은 EtherCAT 주기에 맞춰 각 축에 전달됩니다.</p>
           <ul>
-            <li>작업 좌표 → 관절 좌표 자동 변환, 특이점 · 관절 한계 회피</li>
-            <li>가공·조립·핸들링 경로를 같은 엔진에서 생성</li>
-            <li>5축 가공기와 동일한 IK 코어 공유</li>
+            <li>작업 좌표 → 관절 좌표 자동 변환</li>
+            <li>특이점 및 관절 동작 범위 처리</li>
+            <li>가공, 조립, Handling 경로 생성</li>
+            <li>5축 가공과 로봇 제어에 공통 기구학 연산 Core 적용</li>
           </ul>
         </div>
         <div class="joints">
-          <div><b>J1</b>base</div><div><b>J2</b>shoulder</div><div><b>J3</b>elbow</div><div><b>J4</b>wrist 1</div><div><b>J5</b>wrist 2</div><div><b>J6</b>flange</div>
+          <div><b>J1</b>Base</div><div><b>J2</b>Shoulder</div><div><b>J3</b>Elbow</div><div><b>J4</b>Wrist 1</div><div><b>J5</b>Wrist 2</div><div><b>J6</b>Flange</div>
         </div>
       </article>
 
       <article class="sw-card rv" style="grid-column:1/-1">
         <div class="tag">EBO-WARE · EMBEDDED</div>
-        <h3>관측 가능한 제어 펌웨어</h3>
-        <p>G-code 한 줄에 부여된 trace ID가 보간, EtherCAT 프레임, 드라이브의 전류 명령까지 그대로 따라갑니다. 장비가 이상하게 움직였을 때 "어느 줄의 어느 축이 왜"를 계층을 넘어 추적할 수 있습니다. 모든 상태는 명시적이고, 오류는 문자열이 아니라 데이터로 남습니다.</p>
+        <h3>제어 상태 추적 및 진단 펌웨어</h3>
+        <p>G-code 실행 정보에 Trace ID를 부여하고, 보간 연산부터 EtherCAT 통신, 각 축의 전류 명령까지 동일한 ID로 연계하여 추적합니다. 장비 동작 이상이 발생하면 명령 발생 위치와 해당 축의 제어 상태를 단계별로 확인할 수 있으며, Fault 정보와 주요 상태값은 데이터로 기록하여 원인 분석에 활용합니다.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ================= DATA / MOAT ================= -->
-<section id="data" class="alt">
+<!-- ================= TECHNOLOGY ================= -->
+<section id="tech" class="alt">
   <div class="wrap">
-    <div class="moat">
-      <div class="rv">
-        <span class="eyebrow">Why EBOTEC</span>
-        <h2>서보가 보는 것을<br>소프트웨어가 배웁니다</h2>
-        <p>스텝 모터 기반 장비는 "명령을 내렸다"만 압니다. 우리 드라이브는 25 µs마다 실제 전류, 실제 위치, 추종 오차를 측정합니다. 이 데이터가 CAM의 전략 제안과 로봇의 경로 생성으로 되돌아가는 구조가 EBOTEC이 경쟁하는 지점입니다. 강성(rigidity) 경쟁이 아니라 지능(intelligence) 경쟁입니다.</p>
-      </div>
-      <div class="loop rv">
-        <div class="stage"><span class="t">SENSE</span><span class="d"><strong>ΣΔ 절연 전류 센싱</strong> · 23-bit 절대 위치 · 20 kHz 샘플</span></div>
-        <div class="stage"><span class="t">CONTROL</span><span class="d"><strong>FOC 전류 루프</strong> 1.5–2 kHz 대역 · DC 버스 피드포워드</span></div>
-        <div class="stage"><span class="t">SYNC</span><span class="d"><strong>EtherCAT DC</strong> · 전 축 동시 latch · PDO 계약 기반 교환</span></div>
-        <div class="stage"><span class="t">TRACE</span><span class="d"><strong>trace ID</strong> G-code 줄 → 축 명령 → 전류까지 연결</span></div>
-        <div class="stage"><span class="t">LEARN</span><span class="d"><strong>실측 부하 데이터</strong>로 CAM 전략 · 이송 속도 · 로봇 경로 재최적화</span></div>
-      </div>
+    <div class="sec-head rv">
+      <span class="eyebrow">Technology</span>
+      <h2>제어 계층 전체를<br>하나의 기술로 연결합니다</h2>
+      <p>전력전자 하드웨어, 서보 제어, EtherCAT 통신, 모션 소프트웨어를 각각의 요소 기술로 확보하고, 이를 하나의 시스템으로 연결하여 제품에 적용합니다.</p>
     </div>
-    <div class="stats rv">
-      <div class="stat"><div class="n">20<small>kHz</small></div><div class="l">전류 제어 루프 주파수</div></div>
-      <div class="stat"><div class="n">25<small>µs</small></div><div class="l">제어 주기 (double-update)</div></div>
-      <div class="stat"><div class="n">23<small>bit</small></div><div class="l">절대 encoder(엔코더) 분해능</div></div>
-      <div class="stat"><div class="n">6<small>axis</small></div><div class="l">로봇 · 5축 가공기 공용 제어</div></div>
+    <div class="pillars four rv">
+      <article class="pillar">
+        <svg viewBox="0 0 48 48"><path d="M26 4 12 26h10l-2 18 14-22H24z"/><rect x="4" y="14" width="4" height="20" rx="1"/><rect x="40" y="14" width="4" height="20" rx="1"/></svg>
+        <div class="tag" style="margin-top:18px">POWER &amp; CURRENT CONTROL</div>
+        <h3>전력 변환 · 전류 제어</h3>
+        <p>6-IGBT 인버터의 전력 회로 설계부터 전류 센싱, 전류 제어 알고리즘까지 자체 기술로 구현합니다.</p>
+        <ul>
+          <li>FOC · SVPWM 기반 20 kHz 전류 제어</li>
+          <li>AMC1304 절연 Sigma-Delta 전류 센싱</li>
+          <li>3-Shunt · 6-IGBT Inverter 전력 회로 설계</li>
+          <li>Dead-time 및 Switching Delay를 반영한 Gate Timing 설계</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <svg viewBox="0 0 48 48"><circle cx="10" cy="24" r="4"/><circle cx="24" cy="10" r="4"/><circle cx="24" cy="38" r="4"/><circle cx="38" cy="24" r="4"/><path d="M14 24h20M24 14v20M13 21l8-8M35 27l-8 8M13 27l8 8M35 21l-8-8"/></svg>
+        <div class="tag" style="margin-top:18px">REAL-TIME NETWORK</div>
+        <h3>EtherCAT 실시간 동기 제어</h3>
+        <p>EtherCAT Master와 CiA402 Slave를 직접 구현하여, 다축 시스템의 동기 제어와 축간 간섭 억제를 제어기 안에서 처리합니다.</p>
+        <ul>
+          <li>EtherCAT Master · CiA402 Slave 자체 구현</li>
+          <li>EtherCAT DC 동기, 25 µs 이하 Cycle, 1 µs급 동기 정밀도</li>
+          <li>다축 · 다관절 운전의 기구 공진 및 축간 간섭 억제</li>
+          <li>EnDat 2.2 · BiSS-C · T-format · Resolver 엔코더 인터페이스</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <svg viewBox="0 0 48 48"><path d="M6 38h12M12 38V26l9-9 9 5 8-12"/><circle cx="12" cy="26" r="3"/><circle cx="21" cy="17" r="3"/><circle cx="30" cy="22" r="3"/><path d="M38 10h4v4"/></svg>
+        <div class="tag" style="margin-top:18px">KINEMATICS &amp; SOFTWARE</div>
+        <h3>기구학 · 경로 생성 소프트웨어</h3>
+        <p>로봇과 5축 가공기가 공통으로 사용하는 기구학 연산 Core 위에 경로 생성과 실시간 제어를 분리하여 구성합니다.</p>
+        <ul>
+          <li>6축 로봇 IK · FK 및 BA-TRT 5축 Trunnion 기구학</li>
+          <li>5축 동시 보간 및 Look-ahead 가감속 제어</li>
+          <li>LLM AI 가공 전략 제안과 Deterministic 경로 연산 분리</li>
+          <li>Simulator에서 검증한 알고리즘을 Firmware에 직접 적용</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <svg viewBox="0 0 48 48"><path d="M4 24c2.5-13 5-13 7.5 0s5 10 7.5 0 5-7 7.5 0 5 4.5 7.5 0 5-2 7.5 0"/><path d="M6 8v32M42 8v32" stroke-dasharray="3 4"/></svg>
+        <div class="tag" style="margin-top:18px">VIBRATION CONTROL</div>
+        <h3>기구 공진 및 축간 간섭 억제</h3>
+        <p>다축 운전에서 발생하는 기계 공진과 축간 간섭을 분석하고, Notch Filter와 제어 Gain 조정을 통해 진동을 억제합니다. Servo Drive의 전류 · 속도 데이터를 이용하여 기계계와 제어계의 영향을 함께 확인합니다.</p>
+      </article>
+    </div>
+
+    <div class="techlist rv">
+      <div class="h">EBOTEC만의 제어 기술</div>
+      <div class="item"><span class="t">Vibration &amp; Resonance Control</span><span class="d">다축 · 다관절 운전에서 발생하는 기구 공진, 축간 간섭, 진동 억제 기술</span></div>
+      <div class="item"><span class="t">Servo Tuning &amp; Auto Setup</span><span class="d">관성 추정, Gain Tuning, Notch Filter, 공진 주파수 분석, 자동 튜닝</span></div>
+      <div class="item"><span class="t">Full-Closed Loop Control</span><span class="d">Motor Encoder + Linear Scale 2중 Feedback을 이용한 위치 제어</span></div>
+      <div class="item"><span class="t">Multi-Axis Synchronization</span><span class="d">EtherCAT DC 기반 다축 동기 제어, Gantry 및 다관절 축 동기화</span></div>
+      <div class="item"><span class="t">Fault Diagnosis &amp; Trace</span><span class="d">전류 · 속도 · 위치 · Fault 정보를 기록하고 이상 발생 시 원인을 추적하는 진단 기술</span></div>
     </div>
   </div>
 </section>
 
+<!-- ================= PATENTS ================= -->
+<section id="patent">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Patents</span>
+      <h2>EBOTEC의 모션 제어 기술</h2>
+      <p>서보 제어, 전류 제어, 진동 억제, AI 자동 튜닝, 정밀 기계 구조 분야에서 개발한 기술을 특허로 출원하고 있습니다. 현재 출원 절차를 진행 중이며, 세부 기술 내용은 출원 이후 공개할 예정입니다.</p>
+    </div>
+    <div class="pillars four rv">
+      <article class="pillar">
+        <div class="tag">VIBRATION &amp; RESONANCE</div>
+        <h3>진동 · 공진 제어</h3>
+        <ul>
+          <li>운전 중 기계 공진 실시간 감지 및 노치 필터 점진 적용 제어</li>
+          <li>틸트 축 듀얼 DD 모터 반대 토크 구동의 적응형 진동 동기화 제어</li>
+          <li>가속도 피드백 기반 능동 진동 제어</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <div class="tag">CURRENT CONTROL</div>
+        <h3>전류 제어 · 전력 변환</h3>
+        <ul>
+          <li>전류 센싱 지연 보상을 위한 전류 제어 시간 보상 기술</li>
+          <li>전류 리플 기반 스위칭 주파수 점진 가변 및 제어기 자동 보정</li>
+          <li>리니어 모터 구동 인버터의 스위칭 주파수 적응 제어</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <div class="tag">AI TUNING</div>
+        <h3>AI 자동 식별 · 자동 튜닝</h3>
+        <ul>
+          <li>구동 메커니즘 자동 식별 및 가상 모델 학습</li>
+          <li>구동계 디지털 트윈 자가 생성 및 운용</li>
+          <li>기계 특성에 따른 제어기 구조 자동 생성</li>
+          <li>기계 상태 진단 및 유지보수 시점 예측</li>
+          <li>갠트리 축 직각도 원인 분류 및 자동 보정</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <div class="tag">MACHINE STRUCTURE</div>
+        <h3>정밀 기계 구조</h3>
+        <ul>
+          <li>틸트 축 양단 대향 배치형 듀얼 DD 모터 구동 구조체</li>
+          <li>스핀들부 · 틸트부 단일 강체 일체화 구조</li>
+          <li>댐퍼 부유 절연을 이용한 충격 차단 · 소음 저감 구조</li>
+        </ul>
+      </article>
+    </div>
+    <p class="vcap" style="margin-top:18px">2026년 8월 기준 출원 진행 중 · 등록 현황은 확정되는 대로 업데이트합니다.</p>
+  </div>
+</section>
+
 <!-- ================= COMPANY ================= -->
-<section id="company">
+<section id="company" class="alt">
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">Company</span>
-      <h2>서보 드라이브부터 모션 제어기까지,<br>제어 계층 전체를 직접 설계합니다</h2>
-      <p>EBOTEC Co., Ltd.(Energy and Robot Technology)는 산업용 서보 드라이브와 EtherCAT 모션 제어 분야에서 쌓은 전력전자 하드웨어 설계 경험 위에 세워집니다. 경기 화성을 기반으로, 로봇 개발자 · 연구실 · 소규모 제조 벤처가 짧은 주기로 구조 부품을 만들고 로봇을 움직일 수 있는 제어 솔루션을 목표로 합니다.</p>
+      <h2>서보 드라이브부터 모션 제어기,<br>제어 계층 설계</h2>
+      <p>EBOTEC Co., Ltd.(Energy and Robot Technology)는 산업용 서보 드라이브와 EtherCAT 모션 제어 기술을 기반으로 제품을 개발하고 있습니다. 전력전자 하드웨어, 서보 제어, EtherCAT 통신, 모션 소프트웨어를 하나의 시스템으로 연결하는 것을 목표로 합니다.</p>
     </div>
     <div class="road rv">
-      <div class="m now"><div class="y">2026</div><h4>서보 드라이브 안정화</h4><p>EBO-Drive · EtherCAT 슬레이브 · 시뮬레이터 완성, 3축 직교 로봇 시연</p></div>
-      <div class="m"><div class="y">2027</div><h4>법인 설립</h4><p>정부 지원 과제 진입, 제어 라인 양산 설계</p></div>
-      <div class="m"><div class="y">2028</div><h4>3축 데스크톱 CNC 출시</h4><p>EBO-SOFT AI CAM 정식 공개</p></div>
-      <div class="m"><div class="y">2029</div><h4>6축 로봇 제어 패키지</h4><p>로봇 좌표 자동 생성 소프트웨어 상용화</p></div>
-      <div class="m"><div class="y">2030</div><h4>5축 trunnion(트러니언) 가공기</h4><p>harmonic reducer(하모닉 리듀서) 적용, simultaneous(사이멀테이니어스) 5축 양산</p></div>
+      <div class="m"><div class="y">2025</div><h4>핵심 기술 설계</h4><p>TI F28388D 기반 Demo Board 설계 완료</p></div>
+      <div class="m"><div class="y">2026</div><h4>서보 핵심 제어 기술 개발</h4><p>전류 제어 · FOC · EBOTEC 제어 알고리즘 개발 완료</p></div>
+      <div class="m now"><div class="y">2026</div><h4>2차 제품 기획 및 설계</h4><p>서보 드라이브 안정화와 제품 구성 설계, 완제품 확보</p></div>
+      <div class="m"><div class="y">2027</div><h4>EBO-Drive 시스템 완성</h4><p>EtherCAT Slave · Simulator · 3축 직교 로봇 시연</p></div>
+      <div class="m"><div class="y">2027</div><h4>법인 설립 및 사업화</h4><p>정부 지원 과제 진입, 제어 라인 양산 설계</p></div>
     </div>
   </div>
 </section>
 
 <!-- ================= CONTACT ================= -->
-<section id="contact" class="contact alt">
+<section id="contact" class="contact">
   <div class="wrap">
     <div class="rv">
       <span class="eyebrow">Contact</span>
-      <h2>어떤 축을 움직이려 하시나요?</h2>
-      <p>로봇 관절이든 가공기 회전축이든, 제어 구조부터 같이 봐드립니다. 파일럿 적용, 공동 R&amp;D, 기술 문의를 환영합니다.</p>
+      <h2>제품 및 기술 문의</h2>
+      <p>로봇 및 모션 제어 시스템의 제품 적용, 파일럿 개발, 공동 R&amp;D 관련 기술 문의를 환영합니다.</p>
       <p class="mono" style="margin-top:24px;font-size:13px">경기도 화성시<br>contact@ebotec.kr <span style="opacity:.5">(준비 중)</span></p>
     </div>
     <form class="cform rv" onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block';this.querySelector('button').disabled=true;">
