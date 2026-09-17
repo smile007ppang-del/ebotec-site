@@ -200,6 +200,7 @@ body.noscroll{overflow:hidden}
 .promo-box{position:relative;width:min(1080px,100%);margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 30px 70px -26px rgba(13,30,45,.32);padding:34px 36px 24px}
 .promo-x{position:absolute;top:14px;right:14px;width:36px;height:36px;border:1px solid var(--line);background:var(--slate);color:var(--muted);border-radius:4px;font-size:17px;line-height:1;cursor:pointer;transition:.2s}
 .promo-x:hover{color:var(--text);border-color:var(--muted)}
+.promo-banner{display:block;width:calc(100% + 72px);max-width:none;margin:-34px -36px 24px;border-radius:10px 10px 0 0}
 .promo-head{max-width:760px}
 .promo-head h2{font-size:clamp(22px,2.6vw,30px);font-weight:800;letter-spacing:-0.03em;line-height:1.25;margin:12px 0 12px}
 .promo-head h2 em{font-style:normal;color:var(--green)}
@@ -226,6 +227,7 @@ body.noscroll{overflow:hidden}
 @media (max-width:860px){
   .promo{padding:16px 12px}
   .promo-box{padding:26px 20px 20px}
+  .promo-banner{width:calc(100% + 40px);margin:-26px -20px 18px}
   .promo-vids{grid-template-columns:1fr}
 }
 
@@ -841,6 +843,7 @@ footer .copy .est b{color:var(--green);font-weight:500}
 <div class="promo" id="promo" role="dialog" aria-modal="true" aria-labelledby="promoTitle">
   <div class="promo-box">
     <button class="promo-x" type="button" aria-label="배너 닫기" data-close>✕</button>
+    <img class="promo-banner" src="img/promo-banner.jpg" alt="모두의창업 프로젝트 2기 — EBOTEC, 새로운 도전을 시작합니다! 서보, 모션제어, CAM 기술을 바탕으로 제품화를 향한 도전을 이어갑니다.">
     <div class="promo-head">
       <span class="eyebrow">EBOTEC Software</span>
       <h2 id="promoTitle">제어기부터 검증 소프트웨어까지<br><em>EBOTEC이 직접 개발했습니다</em></h2>
