@@ -9,15 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --slate:#0B0F14;
-  --surface:#111821;
-  --surface-2:#161F2A;
-  --line:#1F2B36;
-  --text:#E6EDF3;
-  --muted:#8B98A5;
-  --green:#00B87C;
+  --slate:#FFFFFF;
+  --surface:#F4F7FA;
+  --surface-2:#E9EFF5;
+  --inset:#F0F4F8;
+  --line:#DCE3EA;
+  --text:#0D1620;
+  --muted:#5C6B7A;
+  --green:#00875C;
   --logo:#288566;
-  --green-dim:#0E7A56;
+  --green-dim:#7FC9AC;
   --amber:#F5B72B;
   --red:#E25C5C;
   --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
@@ -34,7 +35,7 @@ img{max-width:100%;display:block}
 :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:2px}
 
 /* ---------- nav ---------- */
-.nav{position:sticky;top:0;z-index:50;background:rgba(11,15,20,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:80px}
 .brand{display:flex;align-items:flex-end;gap:13px;font-weight:800;letter-spacing:.22em;font-size:15px}
 .brand img{height:54px;width:auto}
@@ -57,20 +58,20 @@ img{max-width:100%;display:block}
 .hero .actions{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:4px;font-weight:600;font-size:15px;transition:.2s;border:1px solid transparent}
 .btn-primary{background:var(--green);color:var(--slate)}
-.btn-primary:hover{background:#16d494}
+.btn-primary:hover{background:#00A06D}
 .btn-ghost{border-color:var(--line);color:var(--text)}
 .btn-ghost:hover{border-color:var(--muted)}
 .hero-stack{position:relative}
-.panel-frame{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.panel-frame{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px;box-shadow:0 24px 60px -28px rgba(13,30,45,.28)}
 .panel-frame img{border-radius:4px;width:100%}
 /* product caption under the hero panel */
 .panel-cap{margin-top:16px;text-align:center;font-family:var(--mono)}
 .panel-cap b{display:block;font-size:14px;font-weight:500;letter-spacing:.2em;color:var(--green)}
 .panel-cap span{display:block;margin-top:7px;font-size:11px;letter-spacing:.05em;color:var(--muted);line-height:1.6}
 .hero-bg{position:absolute;inset:0;pointer-events:none;background:
-  radial-gradient(800px 400px at 85% 20%,rgba(0,184,124,.08),transparent 60%),
-  repeating-linear-gradient(0deg,transparent 0 59px,rgba(255,255,255,.025) 59px 60px),
-  repeating-linear-gradient(90deg,transparent 0 59px,rgba(255,255,255,.025) 59px 60px)}
+  radial-gradient(800px 400px at 85% 20%,rgba(0,135,92,.09),transparent 60%),
+  repeating-linear-gradient(0deg,transparent 0 59px,rgba(13,22,32,.045) 59px 60px),
+  repeating-linear-gradient(90deg,transparent 0 59px,rgba(13,22,32,.045) 59px 60px)}
 
 /* ---------- sections ---------- */
 section{padding:108px 0}
@@ -93,7 +94,7 @@ section.alt{background:var(--surface)}
 .pillars.four{grid-template-columns:repeat(2,1fr)}
 
 /* technology — EBOTEC 제어 기술 리스트 */
-.techlist{margin-top:20px;border:1px solid var(--line);border-radius:8px;background:#070A0E;padding:30px 34px}
+.techlist{margin-top:20px;border:1px solid var(--line);border-radius:8px;background:var(--inset);padding:30px 34px}
 .techlist .h{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--green);margin-bottom:20px}
 .techlist .item{display:grid;grid-template-columns:260px 1fr;gap:24px;padding:15px 0;border-bottom:1px solid var(--line);align-items:baseline}
 .techlist .item:last-child{border:0;padding-bottom:0}
@@ -102,7 +103,7 @@ section.alt{background:var(--surface)}
 
 /* hardware */
 .hw{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.hw-img{position:sticky;top:96px;background:#070A0E;border:1px solid var(--line);border-radius:8px;padding:18px}
+.hw-img{position:sticky;top:96px;background:var(--inset);border:1px solid var(--line);border-radius:8px;padding:18px}
 .hw-img img{width:100%}
 .hw-img .cap{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:12px;display:flex;justify-content:space-between}
 .product{border-top:1px solid var(--line);padding:28px 0}
@@ -143,9 +144,9 @@ section.alt{background:var(--surface)}
 .vid video{width:100%;height:100%;display:block;object-fit:contain;background:#000}
 .vid-play{position:absolute;inset:0;border:0;padding:0;background:rgba(6,10,14,.45);cursor:pointer;display:grid;place-items:center;transition:background .18s}
 .vid-play:hover{background:rgba(6,10,14,.28)}
-.vid-play span{width:58px;height:58px;border-radius:50%;background:var(--green);display:grid;place-items:center;box-shadow:0 6px 22px rgba(0,0,0,.45);transition:transform .18s}
+.vid-play span{width:58px;height:58px;border-radius:50%;background:var(--green);display:grid;place-items:center;box-shadow:0 6px 18px rgba(13,30,45,.3);transition:transform .18s}
 .vid-play:hover span{transform:scale(1.06)}
-.vid-play span::after{content:"";border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #06121A;margin-left:5px}
+.vid-play span::after{content:"";border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #FFFFFF;margin-left:5px}
 .vid.playing .vid-play{display:none}
 .vid.ds{aspect-ratio:1792/932}
 .vcap{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px;line-height:1.5}
@@ -161,7 +162,7 @@ section.alt{background:var(--surface)}
 .ware-body ul{list-style:none;margin-top:18px;display:grid;gap:8px;font-size:14px;color:var(--text)}
 .ware-body li{padding-left:16px;position:relative}
 .ware-body li::before{content:"›";position:absolute;left:0;color:var(--green)}
-.ware-shot{margin:0;background:#070A0E;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.ware-shot{margin:0;background:var(--inset);border:1px solid var(--line);border-radius:6px;overflow:hidden}
 .ware-shot img{width:100%;display:block}
 .ware-shot figcaption{font-family:var(--mono);font-size:10.5px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-top:1px solid var(--line)}
 .ware-note{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:12px;line-height:1.6}
@@ -172,11 +173,67 @@ section.alt{background:var(--surface)}
 .chgrid b{display:block;color:var(--green);font-weight:500;font-size:12px;margin-bottom:4px}
 .chgrid span{color:var(--muted)}
 
+/* ---------- product : 5-axis machining center ---------- */
+.mc{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:start}
+.mc-shot{margin:0;background:var(--inset);border:1px solid var(--line);border-radius:8px;overflow:hidden;position:sticky;top:96px}
+.mc-shot img{width:100%;display:block}
+.mc-shot figcaption{font-family:var(--mono);font-size:10.5px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-top:1px solid var(--line)}
+.mc-body .tag{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--green)}
+.mc-body h3{font-size:24px;font-weight:800;margin:14px 0 10px;letter-spacing:-0.02em}
+.mc-body h3 span{color:var(--green)}
+.mc-body p{color:var(--muted);font-size:15px}
+.axes{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:22px;font-family:var(--mono);font-size:11px}
+.axes div{background:var(--surface-2);border:1px solid var(--line);border-radius:4px;padding:10px 8px;text-align:center}
+.axes b{display:block;color:var(--green);font-weight:500;font-size:13px;margin-bottom:3px}
+.axes span{color:var(--muted)}
+.mc-hmi{margin-top:28px;border:1px solid var(--line);border-radius:8px;background:var(--inset);padding:24px 26px}
+.mc-hmi .h{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--green);text-transform:uppercase;margin-bottom:16px}
+.mc-hmi ul{list-style:none;display:grid;gap:8px;font-size:14px;color:var(--text)}
+.mc-hmi li{padding-left:16px;position:relative}
+.mc-hmi li::before{content:"\203A";position:absolute;left:0;color:var(--green)}
+.mc-spec{margin-top:26px}
+
+/* ---------- promo banner (모두의창업) ---------- */
+body.noscroll{overflow:hidden}
+.promo{position:fixed;inset:0;z-index:200;display:none;padding:24px 16px;overflow-y:auto;background:rgba(10,20,30,.55);backdrop-filter:blur(6px)}
+.promo.open{display:block}
+.promo-box{position:relative;width:min(1080px,100%);margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 30px 70px -26px rgba(13,30,45,.32);padding:34px 36px 24px}
+.promo-x{position:absolute;top:14px;right:14px;width:36px;height:36px;border:1px solid var(--line);background:var(--slate);color:var(--muted);border-radius:4px;font-size:17px;line-height:1;cursor:pointer;transition:.2s}
+.promo-x:hover{color:var(--text);border-color:var(--muted)}
+.promo-head{max-width:760px}
+.promo-head h2{font-size:clamp(22px,2.6vw,30px);font-weight:800;letter-spacing:-0.03em;line-height:1.25;margin:12px 0 12px}
+.promo-head h2 em{font-style:normal;color:var(--green)}
+.promo-head p{color:var(--muted);font-size:15px}
+.promo-marks{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;font-family:var(--mono);font-size:11px}
+.promo-marks div{flex:1 1 150px;background:var(--slate);border:1px solid var(--line);border-radius:4px;padding:11px 10px;text-align:center}
+.promo-marks b{display:block;color:var(--green);font-weight:500;font-size:13px;margin-bottom:3px}
+.promo-marks span{color:var(--muted)}
+.promo-vids{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}
+.promo-card{background:var(--slate);border:1px solid var(--line);border-radius:8px;padding:18px}
+.promo-card .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--green)}
+.promo-card h3{font-size:17px;font-weight:700;letter-spacing:-0.02em;margin:9px 0 7px}
+.promo-card p{color:var(--muted);font-size:13.5px;margin-bottom:14px}
+.promo-card .vcap{margin-top:10px}
+.promo-foot{margin-top:26px;border-top:1px solid var(--line);padding-top:20px}
+.promo-wish{text-align:center;font-size:clamp(16px,2vw,20px);font-weight:800;letter-spacing:-0.02em}
+.promo-wish em{font-style:normal;color:var(--green)}
+.promo-wish small{display:block;margin-top:7px;font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.14em;color:var(--muted)}
+.promo-acts{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:20px}
+.promo-acts .opt{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);cursor:pointer}
+.promo-acts .opt input{accent-color:var(--green);width:15px;height:15px}
+.promo-acts .go{display:flex;gap:10px;flex-wrap:wrap}
+.promo-acts .btn{padding:11px 18px;font-size:14px}
+@media (max-width:860px){
+  .promo{padding:16px 12px}
+  .promo-box{padding:26px 20px 20px}
+  .promo-vids{grid-template-columns:1fr}
+}
+
 /* data / moat */
 .moat{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .moat h2{font-size:clamp(28px,3.4vw,42px);font-weight:800;letter-spacing:-0.03em;line-height:1.2;margin:14px 0 18px}
 .moat p{color:var(--muted);font-size:17px}
-.loop{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:8px;background:#070A0E;padding:26px}
+.loop{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:8px;background:var(--inset);padding:26px}
 .loop .stage{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
 .loop .stage:last-child{border:0}
 .loop .t{color:var(--green);letter-spacing:.1em}
@@ -196,7 +253,7 @@ section.alt{background:var(--surface)}
 .road::before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:var(--line)}
 .road .m{padding:0 16px 0 0;position:relative}
 .road .m::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--slate);border:2px solid var(--green-dim);position:absolute;top:4px;left:0}
-.road .m.now::before{background:var(--green);border-color:var(--green);box-shadow:0 0 0 6px rgba(0,184,124,.15)}
+.road .m.now::before{background:var(--green);border-color:var(--green);box-shadow:0 0 0 6px rgba(0,135,92,.16)}
 .road .y{font-family:var(--mono);font-size:12px;color:var(--green);margin-top:30px;letter-spacing:.1em}
 .road h4{font-size:16px;font-weight:700;margin:8px 0 6px}
 .road p{font-size:13px;color:var(--muted)}
@@ -238,9 +295,9 @@ footer .copy .est b{color:var(--green);font-weight:500}
   .pillars,.pillars.four{grid-template-columns:1fr}
   .techlist{padding:26px 22px}
   .techlist .item{grid-template-columns:1fr;gap:6px}
-  .hw,.moat,.contact .wrap,.sw-card.wide,.ware-body{grid-template-columns:1fr}
+  .hw,.moat,.contact .wrap,.sw-card.wide,.ware-body,.mc{grid-template-columns:1fr}
   .chgrid{grid-template-columns:repeat(3,1fr)}
-  .hw-img{position:static}
+  .hw-img,.mc-shot{position:static}
   .sw{grid-template-columns:1fr}
   .stats{grid-template-columns:repeat(2,1fr)}
   .stat:nth-child(2){border-right:0}
@@ -270,6 +327,7 @@ footer .copy .est b{color:var(--green);font-weight:500}
   <div class="wrap">
     <a href="#top" class="brand" aria-label="EBOTEC 홈"><img src="img/logo-mark.png" alt=""><span class="wm">EBOTEC</span></a>
     <ul id="menu">
+      <li><a href="#product">제품</a></li>
       <li><a href="#solutions">솔루션</a></li>
       <li><a href="#hardware">하드웨어</a></li>
       <li><a href="#software">소프트웨어</a></li>
@@ -305,6 +363,64 @@ footer .copy .est b{color:var(--green);font-weight:500}
     </div>
   </div>
 </header>
+
+<!-- ================= PRODUCT ================= -->
+<section id="product" class="alt">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Product</span>
+      <h2>5축 가공기<br>EBOTEC 5-Axis Machining Center</h2>
+      <p>EBOTEC의 서보 드라이브와 모션 제어기, 5축 CAM 소프트웨어를 하나의 장비로 통합한 완성형 5축 가공기입니다. X · Y · Z 직선축과 A · B 회전축을 동시에 제어하며, 전용 HMI 제어반에서 프로그램 편집부터 가공 운전, 상태 감시까지 수행합니다.</p>
+    </div>
+    <div class="mc rv">
+      <figure class="mc-shot">
+        <img src="img/product-5axis.jpg" alt="EBOTEC 5축 가공기 — Y축 상하 이동, A축 회전, B축 틸트 구조와 전용 HMI 제어반">
+        <figcaption><span>EBOTEC 5-AXIS MACHINING CENTER</span><span>X · Y · Z · A · B</span></figcaption>
+      </figure>
+      <div class="mc-body">
+        <div class="tag">5 AXIS SIMULTANEOUS CONTROL</div>
+        <h3>트러니언 테이블과 <span>횡형 스핀들</span> 구조</h3>
+        <p>A축 회전과 B축 틸트를 담당하는 트러니언 테이블이 Y축으로 상하 이동하며, 그 위에 고정된 가공물을 횡형 스핀들이 X · Z 직선축으로 이동하며 가공합니다. 한 번의 고정으로 가공물의 여러 면을 연속 가공할 수 있으며, 5축 동시 보간과 Look-ahead 가감속 제어를 통해 3차원 형상을 가공합니다.</p>
+        <div class="axes">
+          <div><b>X</b><span>스핀들 이송축</span></div>
+          <div><b>Y</b><span>테이블 틸트 상하 이동</span></div>
+          <div><b>Z</b><span>공구 깊이 방향</span></div>
+          <div><b>A</b><span>테이블 회전</span></div>
+          <div><b>B</b><span>테이블 틸트</span></div>
+        </div>
+
+        <div class="mc-hmi">
+          <div class="h">HMI Control Panel</div>
+          <ul>
+            <li>WORK COORDINATE X · Y · Z · A · B 및 이송 속도 F 실시간 표시</li>
+            <li>AUTO · MDI · JOG · SETTING 운전 모드 전환</li>
+            <li>HOME · PROGRAM · JOG · SETTING · TOOL · MONITOR · ALARM 메뉴 구성</li>
+            <li>Spindle RPM · Feed · Tool No. 상태 표시 및 가공물 형상 미리보기</li>
+            <li>축 선택 키와 MPG 수동 핸들을 이용한 수동 이송</li>
+            <li>Cycle Start · Feed Hold · Reset 운전 조작과 비상 정지 스위치</li>
+            <li>F1 – F5 기능 키, USB 포트를 통한 가공 프로그램 입출력</li>
+          </ul>
+        </div>
+
+        <article class="product mc-spec rv">
+          <header><h3>주요 <span>사양</span></h3><span class="role">Machine Specification</span></header>
+          <div class="spec">
+            <div><b>Axis</b><span>직선 3축 (X · Y · Z) + 회전 2축 (A · B)</span></div>
+            <div><b>Kinematics</b><span>BA-TRT Trunnion, 횡형 Spindle 구조</span></div>
+            <div><b>Control</b><span>EBO-Motion Master Controller, EtherCAT 25 µs 이하</span></div>
+            <div><b>Servo</b><span>EBO-Drive 2축 AC Servo Drive, 20 kHz 전류 제어</span></div>
+            <div><b>Accuracy</b><span>알루미늄 구조 부품 ±0.015 mm 수준</span></div>
+            <div><b>CAM</b><span>EBO-SOFT 5축 경로 생성 · 시뮬레이션 연동</span></div>
+            <div><b>Interface</b><span>전용 HMI 제어반, USB 프로그램 입출력</span></div>
+            <div><b>Structure</b><span>밀폐형 가공실, 내부 LED 조명</span></div>
+          </div>
+        </article>
+
+        <p style="margin-top:22px"><a href="#contact" class="btn btn-primary">제품 문의하기 →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ================= SOLUTIONS ================= -->
 <section id="solutions">
@@ -721,6 +837,67 @@ footer .copy .est b{color:var(--green);font-weight:500}
   </div>
 </footer>
 
+<!-- ================= PROMO BANNER (모두의창업) ================= -->
+<div class="promo" id="promo" role="dialog" aria-modal="true" aria-labelledby="promoTitle">
+  <div class="promo-box">
+    <button class="promo-x" type="button" aria-label="배너 닫기" data-close>✕</button>
+    <div class="promo-head">
+      <span class="eyebrow">EBOTEC Software</span>
+      <h2 id="promoTitle">제어기부터 검증 소프트웨어까지<br><em>EBOTEC이 직접 개발했습니다</em></h2>
+      <p>EBOTEC은 서보 드라이브와 모션 제어기를 자체 설계하고, 그 제어 알고리즘을 검증하는 소프트웨어까지 모두 자체 개발합니다. 아래 두 영상은 실제 EBOTEC 개발 검증 과정에서 사용하는 자체 개발 소프트웨어의 실행 화면입니다.</p>
+    </div>
+
+    <div class="promo-marks">
+      <div><b>20 kHz</b><span>FOC 전류 제어</span></div>
+      <div><b>25 µs</b><span>EtherCAT 동기 주기</span></div>
+      <div><b>12 CH · 10 kHz</b><span>실시간 파형 계측</span></div>
+      <div><b>±0.015 mm</b><span>5축 가공 정밀도</span></div>
+      <div><b>100 %</b><span>자체 개발 · 자체 검증</span></div>
+    </div>
+
+    <div class="promo-vids">
+      <article class="promo-card">
+        <div class="tag">EBO-SOFT · CONTROL SOFTWARE</div>
+        <h3>EBOTEC 제어 소프트웨어 실행 영상</h3>
+        <p>시뮬레이터에서 검증한 동일한 제어 코드를 실제 서보 드라이브에 적용해 동작을 확인하는 EBOTEC 설계 검증 소프트웨어입니다. G-code와 제어 코드를 입력해 장비 적용 전에 동작과 제어 상태를 그대로 확인합니다.</p>
+        <div class="vid">
+          <video preload="none" playsinline poster="img/ebosoft-r03-poster.jpg">
+            <source src="img/ebosoft-r03-demo.mp4" type="video/mp4">
+            브라우저가 비디오 재생을 지원하지 않습니다.
+          </video>
+          <button class="vid-play" type="button" aria-label="EBOTEC 제어 소프트웨어 영상 재생"><span></span></button>
+        </div>
+        <p class="vcap">EBO-SOFT · Servo Drive Monitor — 재생 버튼을 누르면 실제 동작 영상이 시작됩니다.</p>
+      </article>
+
+      <article class="promo-card">
+        <div class="tag">DESIGN SIMULATOR · 전류 제어 검증</div>
+        <h3>전류 제어기 검증용 소프트웨어 영상</h3>
+        <p>전류 제어기와 전력 변환 회로를 설계 단계에서 검증하는 EBOTEC 자체 시뮬레이터입니다. SVPWM Duty, 6-IGBT 스위칭, 3상 전류 파형과 전류 취득 가능 구간을 PCB 제작 전에 미리 계산해 설계 시간을 크게 단축합니다.</p>
+        <div class="vid ds">
+          <video preload="none" playsinline poster="img/design-simulator-poster.jpg">
+            <source src="img/design-simulator-demo.mp4" type="video/mp4">
+            브라우저가 비디오 재생을 지원하지 않습니다.
+          </video>
+          <button class="vid-play" type="button" aria-label="전류 제어기 검증 소프트웨어 영상 재생"><span></span></button>
+        </div>
+        <p class="vcap">Design Simulator — SVPWM · 전류 센싱 구간 해석 화면입니다.</p>
+      </article>
+    </div>
+
+    <div class="promo-foot">
+      <div class="promo-wish">EBOTEC은 <em>모두의창업</em>의 성공을 기원합니다<small>ENERGY AND ROBOT TECHNOLOGY</small></div>
+      <div class="promo-acts">
+        <label class="opt"><input type="checkbox" id="promoToday"> 오늘 하루 열지 않기</label>
+        <span class="go">
+          <a href="#software" class="btn btn-primary" data-close>소프트웨어 보러가기 →</a>
+          <a href="#product" class="btn btn-ghost" data-close>제품 보기</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 function toggleMenu(b){const m=document.getElementById('menu');const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);}
 document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open')));
@@ -738,6 +915,24 @@ document.querySelectorAll('.vid').forEach(box=>{
   v.addEventListener('ended',()=>box.classList.remove('playing'));
 });
 
+</script>
+<script>
+// promo banner (모두의창업)
+(function(){
+  var p=document.getElementById('promo'); if(!p) return;
+  var KEY='ebotec_promo_hide', today=new Date().toDateString();
+  function hidden(){try{return localStorage.getItem(KEY)===today||sessionStorage.getItem(KEY)==='1';}catch(e){return false;}}
+  function open(){p.classList.add('open');document.body.classList.add('noscroll');var x=p.querySelector('.promo-x');if(x)x.focus();}
+  function close(){
+    p.classList.remove('open');document.body.classList.remove('noscroll');
+    p.querySelectorAll('video').forEach(function(v){try{v.pause();}catch(e){}});
+    try{sessionStorage.setItem(KEY,'1');var c=document.getElementById('promoToday');if(c&&c.checked)localStorage.setItem(KEY,today);}catch(e){}
+  }
+  if(!hidden()) open();
+  p.querySelectorAll('[data-close]').forEach(function(el){el.addEventListener('click',close);});
+  p.addEventListener('click',function(e){if(e.target===p)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&p.classList.contains('open'))close();});
+})();
 </script>
 </body>
 </html>
